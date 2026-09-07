@@ -457,14 +457,14 @@ export function App() {
         </div>
 
         <div className="flex items-center gap-0.5">
-          {/* X (Twitter) */}
+          {/* X (x) */}
           <div className="group relative flex items-center justify-center">
             <a
-              href="http://twitter.com/tommy_jepsen"
+              href="http://x.com/tommy_jepsen"
               target="_blank"
               rel="noreferrer"
               className="flex h-8 w-8 items-center justify-center rounded-md text-muted-foreground transition-colors hover:bg-muted hover:text-foreground"
-              aria-label="X (Twitter)"
+              aria-label="X (twitter)"
             >
               <svg
                 viewBox="0 0 24 24"
@@ -477,7 +477,7 @@ export function App() {
               </svg>
             </a>
             <div className="pointer-events-none absolute top-full mt-1.5 whitespace-nowrap rounded-md border border-border/60 bg-popover px-1.5 py-0.5 font-mono text-[8px] uppercase tracking-wider text-popover-foreground opacity-0 transition-opacity duration-150 group-hover:opacity-100 z-50">
-              Creator
+              Tommy Jepsen
             </div>
           </div>
 
@@ -501,7 +501,7 @@ export function App() {
               </svg>
             </a>
             <div className="pointer-events-none absolute top-full mt-1.5 whitespace-nowrap rounded-md border border-border/60 bg-popover px-1.5 py-0.5 font-mono text-[8px] uppercase tracking-wider text-popover-foreground opacity-0 transition-opacity duration-150 group-hover:opacity-100 z-50">
-              Creator
+            Tommy Jepsen
             </div>
           </div>
 
@@ -530,7 +530,7 @@ export function App() {
               </svg>
             </a>
             <div className="pointer-events-none absolute top-full mt-1.5 whitespace-nowrap rounded-md border border-border/60 bg-popover px-1.5 py-0.5 font-mono text-[8px] uppercase tracking-wider text-popover-foreground opacity-0 transition-opacity duration-150 group-hover:opacity-100 z-50">
-              Open Source Repository
+              /creative-tool-ui
             </div>
           </div>
 
@@ -749,6 +749,34 @@ export function App() {
         </main>
       ) : (
         <main className="mx-auto max-w-4xl px-4 sm:px-6 pb-16">
+          {activeTab === "all" && (
+            <div className="mb-8 max-w-xs space-y-2">
+              <h1 className="font-mono text-xs font-semibold uppercase tracking-wider text-foreground">
+                Build creative tools faster
+              </h1>
+              <p className="font-mono text-[11px] leading-relaxed text-muted-foreground">
+                A tactile UI component library designed for creative software, editors, and canvas tools. Created by Tommy Jepsen -{" "}
+                <a
+                  href="http://x.com/tommy_jepsen"
+                  target="_blank"
+                  rel="noreferrer"
+                  className="text-foreground underline underline-offset-2 decoration-border transition-colors hover:text-accent hover:decoration-accent"
+                >
+                  X
+                </a>{" "}
+                and{" "}
+                <a
+                  href="https://www.linkedin.com/in/toje"
+                  target="_blank"
+                  rel="noreferrer"
+                  className="text-foreground underline underline-offset-2 decoration-border transition-colors hover:text-accent hover:decoration-accent"
+                >
+                  LinkedIn
+                </a>
+                .
+              </p>
+            </div>
+          )}
           <div className="grid grid-cols-1 gap-4 sm:gap-6 sm:grid-cols-2">
             {(activeTab === "all" || activeTab === "atoms") &&
               atomCards.map((card) => (
