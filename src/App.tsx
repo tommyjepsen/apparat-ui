@@ -605,9 +605,8 @@ export function App() {
     <div className="min-h-screen bg-background text-foreground transition-colors duration-150">
       {/* Minimal Header */}
       <header
-        className={`mx-auto flex flex-wrap items-center justify-between gap-y-3 px-4 py-4 sm:px-6 sm:py-6 transition-all duration-150 ${
-          activeTab === "templates" ? "w-full max-w-[1920px]" : "max-w-4xl"
-        }`}
+        className={`mx-auto flex flex-wrap items-center justify-between gap-y-3 px-4 py-4 sm:px-6 sm:py-6 transition-all duration-150 ${activeTab === "templates" ? "w-full max-w-[1920px]" : "max-w-4xl"
+          }`}
       >
         <div className="flex flex-wrap items-center gap-4 sm:gap-8">
           <span className="font-mono text-[10px] font-semibold tracking-tight">creative tool ui</span>
@@ -616,11 +615,10 @@ export function App() {
               <button
                 key={tab}
                 onClick={() => setActiveTab(tab)}
-                className={`whitespace-nowrap transition-colors ${
-                  activeTab === tab
-                    ? "font-medium text-foreground"
-                    : "text-muted-foreground hover:text-foreground"
-                }`}
+                className={`whitespace-nowrap transition-colors ${activeTab === tab
+                  ? "font-medium text-foreground"
+                  : "text-muted-foreground hover:text-foreground"
+                  }`}
               >
                 {tab}
               </button>
@@ -673,7 +671,7 @@ export function App() {
               </svg>
             </a>
             <div className="pointer-events-none absolute top-full mt-1.5 whitespace-nowrap rounded-md border border-border/60 bg-popover px-1.5 py-0.5 font-mono text-[8px] uppercase tracking-wider text-popover-foreground opacity-0 transition-opacity duration-150 group-hover:opacity-100 z-50">
-            Tommy Jepsen
+              Tommy Jepsen
             </div>
           </div>
 
@@ -981,12 +979,14 @@ export function App() {
         </main>
       ) : activeTab === "home" ? (
         <main className="mx-auto max-w-4xl px-4 sm:px-6 pb-16">
-          <div className="mb-8 max-w-xs space-y-2">
+          <div className="mb-8 max-w-sm space-y-2">
             <h1 className="font-mono text-xs font-semibold uppercase tracking-wider text-foreground">
               Build creative tools faster
             </h1>
             <p className="font-mono text-[11px] leading-relaxed text-muted-foreground">
-              A Dieter Rams-inspired tactile UI component library designed for creative software, editors, and canvas tools. Created by Tommy Jepsen -{" "}
+              A Dieter Rams-inspired tactile UI component library designed for creative software, editors, and canvas tools.
+
+              <br /><br />Created by Tommy Jepsen -{" "}
               <a
                 href="http://x.com/tommy_jepsen"
                 target="_blank"
@@ -1003,8 +1003,12 @@ export function App() {
                 className="text-foreground underline underline-offset-2 decoration-border transition-colors hover:text-accent hover:decoration-accent"
               >
                 LinkedIn
-              </a>
-              .
+              </a>.
+              <br />
+              Open source on{" "}
+              <a href="https://github.com/tommyjepsen/creative-tool-ui" target="_blank" rel="noreferrer" className="text-foreground underline underline-offset-2 decoration-border transition-colors hover:text-accent hover:decoration-accent">
+                GitHub
+              </a>.
             </p>
           </div>
 
