@@ -26,6 +26,8 @@ import {
   KeyframeTimeline,
   ToolCommandPalette,
   CanvasEditor,
+  MotionVideoEditor,
+  VectorDrawingEditor,
 } from "@/components/tool-ui"
 import { CodeModal } from "@/components/code-modal"
 
@@ -55,6 +57,8 @@ import layerTreeRawCode from "@/components/tool-ui/organisms/layer-tree.tsx?raw"
 import keyframeTimelineRawCode from "@/components/tool-ui/organisms/keyframe-timeline.tsx?raw"
 import toolCommandPaletteRawCode from "@/components/tool-ui/organisms/tool-command-palette.tsx?raw"
 import canvasEditorRawCode from "@/components/tool-ui/templates/canvas-editor.tsx?raw"
+import motionVideoEditorRawCode from "@/components/tool-ui/templates/motion-video-editor.tsx?raw"
+import vectorDrawingEditorRawCode from "@/components/tool-ui/templates/vector-drawing-editor.tsx?raw"
 
 export function App() {
   const [activeTab, setActiveTab] = useState<
@@ -430,12 +434,12 @@ export function App() {
       {/* Minimal Header */}
       <header
         className={`mx-auto flex flex-wrap items-center justify-between gap-y-3 px-4 py-4 sm:px-6 sm:py-6 transition-all duration-150 ${
-          activeTab === "templates" ? "w-full max-w-7xl" : "max-w-4xl"
+          activeTab === "templates" ? "w-full max-w-[1920px]" : "max-w-4xl"
         }`}
       >
-        <div className="flex flex-wrap items-center gap-3 sm:gap-6">
+        <div className="flex flex-wrap items-center gap-4 sm:gap-8">
           <span className="font-mono text-[10px] font-semibold tracking-tight">creative tool ui</span>
-          <nav className="flex items-center gap-2.5 overflow-x-auto font-mono text-[10px] [scrollbar-width:none] [-ms-overflow-style:none] [&::-webkit-scrollbar]:hidden">
+          <nav className="flex items-center gap-4 sm:gap-5 overflow-x-auto font-mono text-[10px] [scrollbar-width:none] [-ms-overflow-style:none] [&::-webkit-scrollbar]:hidden">
             {(["all", "atoms", "molecules", "organisms", "templates"] as const).map((tab) => (
               <button
                 key={tab}
@@ -556,22 +560,67 @@ export function App() {
         </div>
       </div>
       {activeTab === "templates" ? (
-        <main className="mx-auto w-full max-w-7xl px-4 sm:px-6 pb-16">
-          <div className="mb-4 flex items-center justify-between">
-            <span className="font-mono text-[10px] uppercase tracking-wider text-muted-foreground">
-              TEMPLATE / CANVAS EDITOR
-            </span>
-            <button
-              onClick={() => openCode("canvas-editor.tsx", canvasEditorRawCode)}
-              className="flex items-center gap-1 rounded-md border border-border bg-secondary/50 px-2 py-1 font-mono text-[11px] text-muted-foreground transition-all hover:bg-secondary hover:text-foreground active:scale-95"
-              title="View code"
-            >
-              <Code2 className="h-3 w-3" />
-              <span>code</span>
-            </button>
-          </div>
-          <div className="w-full overflow-x-auto pb-4 [scrollbar-width:none] [-ms-overflow-style:none] [&::-webkit-scrollbar]:hidden">
-            <CanvasEditor />
+        <main className="mx-auto w-full max-w-[1920px] px-4 sm:px-6 pb-16">
+          <div className="flex flex-col gap-10 py-4">
+            {/* Template 01 */}
+            <div className="flex flex-col gap-3">
+              <div className="flex items-center justify-between">
+                <span className="font-mono text-[10px] uppercase tracking-wider text-muted-foreground">
+                  01
+                </span>
+                <button
+                  onClick={() => openCode("canvas-editor.tsx", canvasEditorRawCode)}
+                  className="flex items-center gap-1 rounded-md border border-border bg-secondary/50 px-2 py-1 font-mono text-[11px] text-muted-foreground transition-all hover:bg-secondary hover:text-foreground active:scale-95"
+                  title="View code"
+                >
+                  <Code2 className="h-3 w-3" />
+                  <span>code</span>
+                </button>
+              </div>
+              <div className="w-full overflow-x-auto pb-2 [scrollbar-width:none] [-ms-overflow-style:none] [&::-webkit-scrollbar]:hidden">
+                <CanvasEditor />
+              </div>
+            </div>
+
+            {/* Template 02: Motion Graphic Video Editor */}
+            <div className="flex flex-col gap-3">
+              <div className="flex items-center justify-between">
+                <span className="font-mono text-[10px] uppercase tracking-wider text-muted-foreground">
+                  02 / MOTION GRAPHIC VIDEO EDITOR
+                </span>
+                <button
+                  onClick={() => openCode("motion-video-editor.tsx", motionVideoEditorRawCode)}
+                  className="flex items-center gap-1 rounded-md border border-border bg-secondary/50 px-2 py-1 font-mono text-[11px] text-muted-foreground transition-all hover:bg-secondary hover:text-foreground active:scale-95"
+                  title="View code"
+                >
+                  <Code2 className="h-3 w-3" />
+                  <span>code</span>
+                </button>
+              </div>
+              <div className="w-full overflow-x-auto pb-2 [scrollbar-width:none] [-ms-overflow-style:none] [&::-webkit-scrollbar]:hidden">
+                <MotionVideoEditor />
+              </div>
+            </div>
+
+            {/* Template 03: Simple Vector Drawing Tool */}
+            <div className="flex flex-col gap-3">
+              <div className="flex items-center justify-between">
+                <span className="font-mono text-[10px] uppercase tracking-wider text-muted-foreground">
+                  03 / SIMPLE VECTOR DRAWING TOOL
+                </span>
+                <button
+                  onClick={() => openCode("vector-drawing-editor.tsx", vectorDrawingEditorRawCode)}
+                  className="flex items-center gap-1 rounded-md border border-border bg-secondary/50 px-2 py-1 font-mono text-[11px] text-muted-foreground transition-all hover:bg-secondary hover:text-foreground active:scale-95"
+                  title="View code"
+                >
+                  <Code2 className="h-3 w-3" />
+                  <span>code</span>
+                </button>
+              </div>
+              <div className="w-full overflow-x-auto pb-2 [scrollbar-width:none] [-ms-overflow-style:none] [&::-webkit-scrollbar]:hidden">
+                <VectorDrawingEditor />
+              </div>
+            </div>
           </div>
         </main>
       ) : activeTab === "organisms" ? (

@@ -6,7 +6,6 @@ import {
   CreativeColorPicker,
   CreativeNumberInput,
   CreativeSegmentedControl,
-  CreativeEasingCurve,
 } from "../molecules"
 import { CreativeButton, DotPattern, Label } from "../atoms"
 import { FloatingToolbar } from "../organisms"
@@ -25,7 +24,7 @@ export const CanvasEditor: React.FC = () => {
   const [canvasColor, setCanvasColor] = useState<string>("#FFFFFF")
 
   return (
-    <div className="mx-auto w-full min-w-[760px] max-w-7xl px-2 sm:px-6 pb-20">
+    <div className="mx-auto w-full min-w-[760px] max-w-[1920px] px-2 sm:px-6 pb-20">
       {/* Container Card in 16:9 Aspect Ratio */}
       <div className="aspect-video w-full overflow-hidden rounded-xl border border-border bg-card">
         {/* Editor Mockup Shell */}
@@ -135,9 +134,6 @@ export const CanvasEditor: React.FC = () => {
               </div>
             </div>
 
-            <div className="space-y-3">
-              <CreativeEasingCurve label="Motion Curve" />
-            </div>
 
             <div className="mt-auto pt-2 flex items-center gap-2">
               <CreativeButton
