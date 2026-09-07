@@ -6,6 +6,8 @@ An open-source UI component library designed specifically for building modern, h
 
 Built with **React**, **TypeScript**, **Tailwind CSS**, and **Framer Motion**, `tool-ui` follows Brad Frost's **Atomic Design** system. It emphasizes tactile micro-interactions, scrubbable numeric inputs, directional spring physics, and an ultra-clean monospace aesthetic using standard `shadcn` theme tokens.
 
+![Creative tool UI Example](https://raw.githubusercontent.com/tommyjepsen/creative-tool-ui/refs/heads/main/public/creative-tool-ui-example.png)
+
 ---
 
 ## Design Principles
