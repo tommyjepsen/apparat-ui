@@ -1,7 +1,7 @@
 import React from "react"
 import { motion } from "framer-motion"
 import { cn } from "@/lib/utils"
-import { Label } from "./label"
+import { Label } from "../atoms/label"
 
 export interface CreativeToggleProps {
   label?: string

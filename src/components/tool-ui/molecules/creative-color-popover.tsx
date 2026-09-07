@@ -1,7 +1,7 @@
 import React, { useState, useRef, useEffect } from "react"
 import { Check } from "lucide-react"
 import { cn } from "@/lib/utils"
-import { Label } from "./label"
+import { Label } from "../atoms/label"
 
 export interface CreativeColorPopoverProps {
   label?: string

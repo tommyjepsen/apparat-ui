@@ -6,16 +6,11 @@ import {
   CreativeColorPicker,
   CreativeNumberInput,
   CreativeSegmentedControl,
-  CreativeButton,
-  DotPattern,
-  Label,
-} from "@/components/tool-ui"
+} from "../molecules"
+import { CreativeButton, DotPattern, Label } from "../atoms"
 import { RotateCcw, Download } from "lucide-react"
 
-
-
-
-export const LayoutsPage: React.FC = () => {
+export const CanvasEditor: React.FC = () => {
   const [aspect, setAspect] = useState<string>("16:9")
   const [posX, setPosX] = useState<number>(0)
   const [posY, setPosY] = useState<number>(0)
@@ -38,6 +33,7 @@ export const LayoutsPage: React.FC = () => {
             <div className="space-y-3">
               <Label className="block">Ratio</Label>
               <CreativeSegmentedControl
+                layoutId="editor-aspect"
                 value={aspect}
                 onChange={setAspect}
                 options={[
@@ -70,8 +66,8 @@ export const LayoutsPage: React.FC = () => {
                   label="Scale"
                   value={scale}
                   onChange={setScale}
-                  min={20}
-                  max={150}
+                  min={10}
+                  max={200}
                   step={1}
                   unit="%"
                 />

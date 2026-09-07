@@ -1,7 +1,7 @@
 import React, { useRef, useState, useEffect } from "react"
 import { cn } from "@/lib/utils"
-import { SlidingNumber } from "./sliding-number"
-import { Label } from "./label"
+import { SlidingNumber } from "../atoms/sliding-number"
+import { Label } from "../atoms/label"
 
 export interface CreativeNumberInputProps {
   label?: string

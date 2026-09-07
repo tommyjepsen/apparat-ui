@@ -1,6 +1,6 @@
 import React, { useRef, useState, useEffect } from "react"
 import { cn } from "@/lib/utils"
-import { Label } from "./label"
+import { Label } from "../atoms/label"
 
 export interface CreativeColorPickerProps {
   label?: string
