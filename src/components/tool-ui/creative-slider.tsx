@@ -152,7 +152,7 @@ export const CreativeSlider: React.FC<CreativeSliderProps> = ({
       onPointerEnter={handlePointerEnter}
       onPointerLeave={handlePointerLeave}
       className={cn(
-        "group relative flex h-8 w-full select-none items-center overflow-hidden rounded-xl border border-border bg-secondary/40 px-3 text-sm font-medium transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2",
+        "group relative flex h-8 w-full select-none items-center overflow-hidden rounded-xl border border-border bg-secondary/40 px-2 text-sm font-medium transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2",
         disabled ? "cursor-not-allowed opacity-50" : "cursor-ew-resize hover:border-foreground/20 active:border-foreground/25",
         className
       )}

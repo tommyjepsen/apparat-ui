@@ -1,14 +1,35 @@
 import { useState, useEffect } from "react"
-import { Code2, Moon, Sun } from "lucide-react"
+import { Code2, Moon, Sun, Download, Sparkles, RotateCcw, Copy } from "lucide-react"
 import { CreativeSlider } from "@/components/tool-ui/creative-slider"
 import { Label } from "@/components/tool-ui/label"
+import { CreativeSelect } from "@/components/tool-ui/creative-select"
+import { CreativeToggle } from "@/components/tool-ui/creative-toggle"
+import { CreativeColorPicker } from "@/components/tool-ui/creative-color-picker"
+import { CreativeNumberInput } from "@/components/tool-ui/creative-number-input"
+import { CreativeSegmentedControl } from "@/components/tool-ui/creative-segmented-control"
+import { CreativeButton } from "@/components/tool-ui/creative-button"
+import { DotPattern } from "@/components/tool-ui/dot-pattern"
 import { CodeModal } from "@/components/code-modal"
 import { LayoutsPage } from "@/pages/layouts"
 import creativeSliderRawCode from "@/components/tool-ui/creative-slider.tsx?raw"
 import labelRawCode from "@/components/tool-ui/label.tsx?raw"
+import creativeSelectRawCode from "@/components/tool-ui/creative-select.tsx?raw"
+import creativeToggleRawCode from "@/components/tool-ui/creative-toggle.tsx?raw"
+import creativeColorPickerRawCode from "@/components/tool-ui/creative-color-picker.tsx?raw"
+import creativeNumberInputRawCode from "@/components/tool-ui/creative-number-input.tsx?raw"
+import creativeSegmentedControlRawCode from "@/components/tool-ui/creative-segmented-control.tsx?raw"
+import creativeButtonRawCode from "@/components/tool-ui/creative-button.tsx?raw"
+import dotPatternRawCode from "@/components/tool-ui/dot-pattern.tsx?raw"
+
+
 
 export function App() {
   const [activeTab, setActiveTab] = useState<"components" | "layouts">("components")
+  const [blendMode, setBlendMode] = useState("normal")
+  const [gridEnabled, setGridEnabled] = useState(true)
+  const [accentColor, setAccentColor] = useState("#EA580C")
+  const [paddingVal, setPaddingVal] = useState(24)
+  const [alignMode, setAlignMode] = useState("center")
   const [isDark, setIsDark] = useState<boolean>(() => {
     if (typeof window !== "undefined") {
       const stored = localStorage.getItem("theme")
@@ -92,7 +113,7 @@ export function App() {
           {/* Card 1: Creative Slider */}
           <div className="group relative flex aspect-square flex-col justify-between rounded-xl border border-border bg-card p-6 transition-all hover:border-foreground/20">
             <div className="flex items-center justify-between">
-              <span className="font-mono text-xs text-muted-foreground">01 / slider</span>
+              <span className="text-sm tracking-tight text-muted-foreground">01 / slider</span>
               <button
                 onClick={() =>
                   openCode("creative-slider.tsx", creativeSliderRawCode)
@@ -123,7 +144,7 @@ export function App() {
           {/* Card 2: Label */}
           <div className="group relative flex aspect-square flex-col justify-between rounded-xl border border-border bg-card p-6 transition-all hover:border-foreground/20">
             <div className="flex items-center justify-between">
-              <span className="font-mono text-xs text-muted-foreground">02 / label</span>
+              <span className="text-sm tracking-tight text-muted-foreground">02 / label</span>
               <button
                 onClick={() => openCode("label.tsx", labelRawCode)}
                 className="flex items-center gap-1 rounded-md border border-border bg-secondary/50 px-2 py-1 font-mono text-[11px] text-muted-foreground transition-all hover:bg-secondary hover:text-foreground active:scale-95"
@@ -144,14 +165,215 @@ export function App() {
             <div />
           </div>
 
-          {/* Placeholder Card 3 */}
-          <div className="flex aspect-square items-center justify-center rounded-xl border border-dashed border-border/60 bg-muted/10 p-6 text-center">
-            <span className="font-mono text-xs text-muted-foreground/60">+ component</span>
+          {/* Card 3: Creative Select */}
+          <div className="group relative flex aspect-square flex-col justify-between rounded-xl border border-border bg-card p-6 transition-all hover:border-foreground/20">
+            <div className="flex items-center justify-between">
+              <span className="text-sm tracking-tight text-muted-foreground">03 / select</span>
+              <button
+                onClick={() => openCode("creative-select.tsx", creativeSelectRawCode)}
+                className="flex items-center gap-1 rounded-md border border-border bg-secondary/50 px-2 py-1 font-mono text-[11px] text-muted-foreground transition-all hover:bg-secondary hover:text-foreground active:scale-95"
+                title="View code"
+              >
+                <Code2 className="h-3 w-3" />
+                <span>code</span>
+              </button>
+            </div>
+
+            {/* Center Component */}
+            <div className="w-full max-w-[240px] self-center">
+              <CreativeSelect
+                label="Blend"
+                value={blendMode}
+                onChange={setBlendMode}
+                options={[
+                  { value: "normal", label: "Normal" },
+                  { value: "multiply", label: "Multiply" },
+                  { value: "screen", label: "Screen" },
+                  { value: "overlay", label: "Overlay" },
+                  { value: "darken", label: "Darken" },
+                ]}
+              />
+            </div>
+
+            <div />
           </div>
 
-          {/* Placeholder Card 4 */}
-          <div className="flex aspect-square items-center justify-center rounded-xl border border-dashed border-border/60 bg-muted/10 p-6 text-center">
-            <span className="font-mono text-xs text-muted-foreground/60">+ component</span>
+          {/* Card 4: Creative Toggle */}
+          <div className="group relative flex aspect-square flex-col justify-between rounded-xl border border-border bg-card p-6 transition-all hover:border-foreground/20">
+            <div className="flex items-center justify-between">
+              <span className="text-sm tracking-tight text-muted-foreground">04 / toggle</span>
+              <button
+                onClick={() => openCode("creative-toggle.tsx", creativeToggleRawCode)}
+                className="flex items-center gap-1 rounded-md border border-border bg-secondary/50 px-2 py-1 font-mono text-[11px] text-muted-foreground transition-all hover:bg-secondary hover:text-foreground active:scale-95"
+                title="View code"
+              >
+                <Code2 className="h-3 w-3" />
+                <span>code</span>
+              </button>
+            </div>
+
+            {/* Center Component */}
+            <div className="w-full max-w-[240px] self-center">
+              <CreativeToggle
+                label="Snap to grid"
+                checked={gridEnabled}
+                onChange={setGridEnabled}
+              />
+            </div>
+
+            <div />
+          </div>
+
+          {/* Card 5: Creative Color Picker */}
+          <div className="group relative flex aspect-square flex-col justify-between rounded-xl border border-border bg-card p-6 transition-all hover:border-foreground/20">
+            <div className="flex items-center justify-between">
+              <span className="text-sm tracking-tight text-muted-foreground">05 / color</span>
+              <button
+                onClick={() => openCode("creative-color-picker.tsx", creativeColorPickerRawCode)}
+                className="flex items-center gap-1 rounded-md border border-border bg-secondary/50 px-2 py-1 font-mono text-[11px] text-muted-foreground transition-all hover:bg-secondary hover:text-foreground active:scale-95"
+                title="View code"
+              >
+                <Code2 className="h-3 w-3" />
+                <span>code</span>
+              </button>
+            </div>
+
+            {/* Center Component */}
+            <div className="w-full max-w-[240px] self-center">
+              <CreativeColorPicker
+                label="Color"
+                value={accentColor}
+                onChange={setAccentColor}
+              />
+            </div>
+
+            <div />
+          </div>
+
+          {/* Card 6: Creative Number Input */}
+          <div className="group relative flex aspect-square flex-col justify-between rounded-xl border border-border bg-card p-6 transition-all hover:border-foreground/20">
+            <div className="flex items-center justify-between">
+              <span className="text-sm tracking-tight text-muted-foreground">06 / number</span>
+              <button
+                onClick={() => openCode("creative-number-input.tsx", creativeNumberInputRawCode)}
+                className="flex items-center gap-1 rounded-md border border-border bg-secondary/50 px-2 py-1 font-mono text-[11px] text-muted-foreground transition-all hover:bg-secondary hover:text-foreground active:scale-95"
+                title="View code"
+              >
+                <Code2 className="h-3 w-3" />
+                <span>code</span>
+              </button>
+            </div>
+
+            {/* Center Component */}
+            <div className="w-full max-w-[240px] self-center">
+              <CreativeNumberInput
+                label="Padding"
+                unit="px"
+                value={paddingVal}
+                onChange={setPaddingVal}
+                min={0}
+                max={120}
+                step={1}
+              />
+            </div>
+
+            <div />
+          </div>
+
+          {/* Card 7: Creative Segmented Control */}
+          <div className="group relative flex aspect-square flex-col justify-between rounded-xl border border-border bg-card p-6 transition-all hover:border-foreground/20">
+            <div className="flex items-center justify-between">
+              <span className="text-sm tracking-tight text-muted-foreground">07 / segmented</span>
+              <button
+                onClick={() => openCode("creative-segmented-control.tsx", creativeSegmentedControlRawCode)}
+                className="flex items-center gap-1 rounded-md border border-border bg-secondary/50 px-2 py-1 font-mono text-[11px] text-muted-foreground transition-all hover:bg-secondary hover:text-foreground active:scale-95"
+                title="View code"
+              >
+                <Code2 className="h-3 w-3" />
+                <span>code</span>
+              </button>
+            </div>
+
+            {/* Center Component */}
+            <div className="w-full max-w-[240px] self-center">
+              <CreativeSegmentedControl
+                value={alignMode}
+                onChange={setAlignMode}
+                options={[
+                  { value: "left", label: "Left" },
+                  { value: "center", label: "Center" },
+                  { value: "right", label: "Right" },
+                ]}
+              />
+            </div>
+
+            <div />
+          </div>
+
+          {/* Card 8: Creative Button */}
+          <div className="group relative flex aspect-square flex-col justify-between rounded-xl border border-border bg-card p-6 transition-all hover:border-foreground/20">
+            <div className="flex items-center justify-between">
+              <span className="text-sm tracking-tight text-muted-foreground">08 / button</span>
+              <button
+                onClick={() => openCode("creative-button.tsx", creativeButtonRawCode)}
+                className="flex items-center gap-1 rounded-md border border-border bg-secondary/50 px-2 py-1 font-mono text-[11px] text-muted-foreground transition-all hover:bg-secondary hover:text-foreground active:scale-95"
+                title="View code"
+              >
+                <Code2 className="h-3 w-3" />
+                <span>code</span>
+              </button>
+            </div>
+
+            {/* Center Component */}
+            <div className="flex flex-col items-center gap-2 self-center">
+              <div className="flex items-center gap-2">
+                <CreativeButton variant="default" className="gap-1.5">
+                  <Download />
+                  <span>Export</span>
+                </CreativeButton>
+                <CreativeButton variant="accent" className="gap-1.5">
+                  <Sparkles />
+                  <span>Render</span>
+                </CreativeButton>
+              </div>
+              <div className="flex items-center gap-2">
+                <CreativeButton variant="secondary" className="gap-1.5">
+                  <RotateCcw />
+                  <span>Reset</span>
+                </CreativeButton>
+                <CreativeButton variant="outline" className="gap-1.5">
+                  <Copy />
+                  <span>Copy</span>
+                </CreativeButton>
+              </div>
+            </div>
+
+            <div />
+          </div>
+
+          {/* Card 9: Dot Pattern */}
+          <div className="group relative flex aspect-square flex-col justify-between overflow-hidden rounded-xl border border-border bg-card p-6 transition-all hover:border-foreground/20">
+            <div className="relative z-10 flex items-center justify-between">
+              <span className="text-sm tracking-tight text-muted-foreground">09 / dot pattern</span>
+              <button
+                onClick={() => openCode("dot-pattern.tsx", dotPatternRawCode)}
+                className="flex items-center gap-1 rounded-md border border-border bg-secondary/50 px-2 py-1 font-mono text-[11px] text-muted-foreground transition-all hover:bg-secondary hover:text-foreground active:scale-95"
+                title="View code"
+              >
+                <Code2 className="h-3 w-3" />
+                <span>code</span>
+              </button>
+            </div>
+
+            {/* Center Component: preview dot pattern inside miniature container */}
+            <div className="relative z-10 flex h-24 w-full max-w-[240px] items-center justify-center self-center overflow-hidden rounded-xl border border-border/80 bg-background/60 backdrop-blur-sm">
+              <DotPattern size={14} radius={1} className="text-foreground" />
+              <span className="relative z-10 rounded-md bg-secondary/80 px-2 py-0.5 font-mono text-[9px] uppercase tracking-wider text-muted-foreground backdrop-blur-sm border border-border/50">
+                Pattern BG
+              </span>
+            </div>
+
+            <div className="relative z-10" />
           </div>
         </div>
       </main>
