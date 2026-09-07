@@ -38,17 +38,17 @@ export const ToolCommandPalette: React.FC<{
   return (
     <div className="flex w-full max-w-md flex-col overflow-hidden rounded-2xl border border-border bg-card shadow-2xl backdrop-blur-md">
       {/* Search Input Bar */}
-      <div className="flex items-center gap-2 border-b border-border px-3.5 py-2.5">
-        <Search className="text-muted-foreground" />
+      <div className="flex items-center gap-2 border-b border-border px-3 py-2">
+        <Search className="h-3.5 w-3.5 text-muted-foreground shrink-0" />
         <input
           type="text"
           value={query}
           onChange={(e) => setQuery(e.target.value)}
           placeholder="Search commands, actions, or tools..."
-          className="flex-1 bg-transparent font-mono text-xs text-foreground placeholder:text-muted-foreground focus:outline-none"
+          className="flex-1 bg-transparent font-mono text-[10px] text-foreground placeholder:text-muted-foreground focus:outline-none"
           autoFocus
         />
-        <kbd className="rounded-md border border-border/80 bg-secondary/50 px-1.5 py-0.5 font-mono text-[9px] text-muted-foreground">
+        <kbd className="rounded-md border border-border/80 bg-secondary/50 px-1.5 py-0.5 font-mono text-[8px] text-muted-foreground">
           ESC
         </kbd>
       </div>
