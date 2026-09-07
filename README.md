@@ -40,12 +40,19 @@ Micro-interactive tool controls built from atoms:
 - **`CreativeTextareaPopover`**: Popover multiline prompt editor with live character counting, max limit caps, and `Save ⌘+` shortcut indicators.
 - **`CreativeSegmentedControl`**: Pill tab switch featuring Framer Motion layout springs and contextual tooltips.
 - **`CreativeEasingCurve`**: Interactive SVG cubic bezier curve editor with draggable handles, coordinate readouts, presets, and a live timing animation runner track.
+- **`CreativeAngleKnob`**: Circular drag-to-rotate knob dial with tick marks, degree angle readout, and 45° snapping with `Shift`.
+- **`CreativeRangeSlider`**: Dual-handle interval slider for selecting min/max ranges with active highlight fill.
+- **`CreativeBoxModel`**: Multi-dimensional box model input for linked/unlinked 4-sided dimensions (`Top`, `Right`, `Bottom`, `Left`).
+- **`CreativeGradientSlider`**: Multi-stop gradient ramp bar with double-click stop addition, drag offsets, and per-stop hex color selection.
 
 ### 3. Organisms
 Complex tool panels and control bars composed of molecules:
 - **`PropertyInspector`**: Inspector panel organizing identity, transform coordinates, align controls, appearance styling, and actions.
 - **`FloatingToolbar`**: Figma-style floating canvas dock with creation tools (`Cursor`, `Rectangle`, `Pen`, `Text`, `Hand`) and layout view stage switcher (`Split`, `Columns`, `Grid`).
 - **`MotionSidebar`**: Physics engine sidebar for configuring spring dynamics (`Stiffness`, `Damping`, `Mass`), bezier curves, duration/delay timing, and triggers.
+- **`LayerTree`**: Hierarchical scene graph panel with nested artboard/layer nodes, expand/collapse, active selection, and hover eye/lock toggles.
+- **`KeyframeTimeline`**: Transport player timeline dock with frame scrubber playhead (`00:00:xx`), diamond keyframe tracks, and step/add controls.
+- **`ToolCommandPalette`**: Quick `⌘K` spotlight command palette with keyboard navigation, hotkey tags, and category filtering.
 
 ### 4. Templates
 Full-page composite editor experiences:
@@ -63,10 +70,14 @@ src/components/tool-ui/
 │   ├── label.tsx
 │   └── sliding-number.tsx
 ├── molecules/
+│   ├── creative-angle-knob.tsx
+│   ├── creative-box-model.tsx
 │   ├── creative-color-picker.tsx
 │   ├── creative-color-popover.tsx
 │   ├── creative-easing-curve.tsx
+│   ├── creative-gradient-slider.tsx
 │   ├── creative-number-input.tsx
+│   ├── creative-range-slider.tsx
 │   ├── creative-segmented-control.tsx
 │   ├── creative-select.tsx
 │   ├── creative-slider.tsx
@@ -75,8 +86,11 @@ src/components/tool-ui/
 │   └── creative-toggle.tsx
 ├── organisms/
 │   ├── floating-toolbar.tsx
+│   ├── keyframe-timeline.tsx
+│   ├── layer-tree.tsx
 │   ├── motion-sidebar.tsx
-│   └── property-inspector.tsx
+│   ├── property-inspector.tsx
+│   └── tool-command-palette.tsx
 ├── templates/
 │   └── canvas-editor.tsx
 └── index.ts

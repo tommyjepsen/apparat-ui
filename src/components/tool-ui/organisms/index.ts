@@ -1,3 +1,6 @@
 export * from "./property-inspector"
 export * from "./floating-toolbar"
 export * from "./motion-sidebar"
+export * from "./layer-tree"
+export * from "./keyframe-timeline"
+export * from "./tool-command-palette"

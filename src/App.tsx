@@ -15,9 +15,16 @@ import {
   CreativeTextareaPopover,
   CreativeSegmentedControl,
   CreativeEasingCurve,
+  CreativeAngleKnob,
+  CreativeRangeSlider,
+  CreativeBoxModel,
+  CreativeGradientSlider,
   PropertyInspector,
   FloatingToolbar,
   MotionSidebar,
+  LayerTree,
+  KeyframeTimeline,
+  ToolCommandPalette,
   CanvasEditor,
 } from "@/components/tool-ui"
 import { CodeModal } from "@/components/code-modal"
@@ -37,9 +44,16 @@ import creativeTextInputRawCode from "@/components/tool-ui/molecules/creative-te
 import creativeTextareaPopoverRawCode from "@/components/tool-ui/molecules/creative-textarea-popover.tsx?raw"
 import creativeSegmentedControlRawCode from "@/components/tool-ui/molecules/creative-segmented-control.tsx?raw"
 import creativeEasingCurveRawCode from "@/components/tool-ui/molecules/creative-easing-curve.tsx?raw"
+import creativeAngleKnobRawCode from "@/components/tool-ui/molecules/creative-angle-knob.tsx?raw"
+import creativeRangeSliderRawCode from "@/components/tool-ui/molecules/creative-range-slider.tsx?raw"
+import creativeBoxModelRawCode from "@/components/tool-ui/molecules/creative-box-model.tsx?raw"
+import creativeGradientSliderRawCode from "@/components/tool-ui/molecules/creative-gradient-slider.tsx?raw"
 import propertyInspectorRawCode from "@/components/tool-ui/organisms/property-inspector.tsx?raw"
 import floatingToolbarRawCode from "@/components/tool-ui/organisms/floating-toolbar.tsx?raw"
 import motionSidebarRawCode from "@/components/tool-ui/organisms/motion-sidebar.tsx?raw"
+import layerTreeRawCode from "@/components/tool-ui/organisms/layer-tree.tsx?raw"
+import keyframeTimelineRawCode from "@/components/tool-ui/organisms/keyframe-timeline.tsx?raw"
+import toolCommandPaletteRawCode from "@/components/tool-ui/organisms/tool-command-palette.tsx?raw"
 import canvasEditorRawCode from "@/components/tool-ui/templates/canvas-editor.tsx?raw"
 
 export function App() {
@@ -361,6 +375,54 @@ export function App() {
         </div>
       ),
     },
+    {
+      id: "angle-knob",
+      num: "15",
+      title: "angle knob",
+      file: "creative-angle-knob.tsx",
+      code: creativeAngleKnobRawCode,
+      render: (
+        <div className="w-full max-w-[240px] self-center">
+          <CreativeAngleKnob label="Rotation" value={45} />
+        </div>
+      ),
+    },
+    {
+      id: "range-slider",
+      num: "16",
+      title: "range slider",
+      file: "creative-range-slider.tsx",
+      code: creativeRangeSliderRawCode,
+      render: (
+        <div className="w-full max-w-[240px] self-center">
+          <CreativeRangeSlider label="Interval" value={[25, 75]} unit="%" />
+        </div>
+      ),
+    },
+    {
+      id: "box-model",
+      num: "17",
+      title: "box model",
+      file: "creative-box-model.tsx",
+      code: creativeBoxModelRawCode,
+      render: (
+        <div className="w-full max-w-[240px] self-center">
+          <CreativeBoxModel label="Padding" value={{ top: 12, right: 16, bottom: 12, left: 16 }} unit="px" />
+        </div>
+      ),
+    },
+    {
+      id: "gradient-slider",
+      num: "18",
+      title: "gradient ramp",
+      file: "creative-gradient-slider.tsx",
+      code: creativeGradientSliderRawCode,
+      render: (
+        <div className="w-full max-w-[240px] self-center">
+          <CreativeGradientSlider label="Ramp" />
+        </div>
+      ),
+    },
   ]
 
   return (
@@ -572,6 +634,66 @@ export function App() {
               </div>
               <div className="flex justify-center p-2 sm:p-4">
                 <MotionSidebar />
+              </div>
+            </div>
+
+            {/* Organism 04: Layer Tree */}
+            <div className="flex flex-col gap-4 rounded-xl bg-card p-4 sm:p-6">
+              <div className="flex items-center justify-between">
+                <span className="font-mono text-[10px] uppercase tracking-wider text-muted-foreground">
+                  04 / LAYER TREE
+                </span>
+                <button
+                  onClick={() => openCode("layer-tree.tsx", layerTreeRawCode)}
+                  className="flex items-center gap-1 rounded-md border border-border bg-secondary/50 px-2 py-1 font-mono text-[11px] text-muted-foreground transition-all hover:bg-secondary hover:text-foreground active:scale-95"
+                  title="View code"
+                >
+                  <Code2 className="h-3 w-3" />
+                  <span>code</span>
+                </button>
+              </div>
+              <div className="flex justify-center p-2 sm:p-4">
+                <LayerTree />
+              </div>
+            </div>
+
+            {/* Organism 05: Keyframe Timeline */}
+            <div className="flex flex-col gap-4 rounded-xl bg-card p-4 sm:p-6">
+              <div className="flex items-center justify-between">
+                <span className="font-mono text-[10px] uppercase tracking-wider text-muted-foreground">
+                  05 / KEYFRAME TIMELINE
+                </span>
+                <button
+                  onClick={() => openCode("keyframe-timeline.tsx", keyframeTimelineRawCode)}
+                  className="flex items-center gap-1 rounded-md border border-border bg-secondary/50 px-2 py-1 font-mono text-[11px] text-muted-foreground transition-all hover:bg-secondary hover:text-foreground active:scale-95"
+                  title="View code"
+                >
+                  <Code2 className="h-3 w-3" />
+                  <span>code</span>
+                </button>
+              </div>
+              <div className="flex justify-center overflow-x-auto p-2 sm:p-4">
+                <KeyframeTimeline />
+              </div>
+            </div>
+
+            {/* Organism 06: Command Palette */}
+            <div className="flex flex-col gap-4 rounded-xl bg-card p-4 sm:p-6">
+              <div className="flex items-center justify-between">
+                <span className="font-mono text-[10px] uppercase tracking-wider text-muted-foreground">
+                  06 / COMMAND PALETTE
+                </span>
+                <button
+                  onClick={() => openCode("tool-command-palette.tsx", toolCommandPaletteRawCode)}
+                  className="flex items-center gap-1 rounded-md border border-border bg-secondary/50 px-2 py-1 font-mono text-[11px] text-muted-foreground transition-all hover:bg-secondary hover:text-foreground active:scale-95"
+                  title="View code"
+                >
+                  <Code2 className="h-3 w-3" />
+                  <span>code</span>
+                </button>
+              </div>
+              <div className="flex justify-center p-2 sm:p-4">
+                <ToolCommandPalette onToggleTheme={() => setIsDark((prev) => !prev)} />
               </div>
             </div>
           </div>
