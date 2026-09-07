@@ -15,6 +15,7 @@ export interface CreativeSelectProps {
   onChange: (value: string) => void
   className?: string
   disabled?: boolean
+  variant?: "default" | "ghost"
 }
 
 export const CreativeSelect: React.FC<CreativeSelectProps> = ({
@@ -24,6 +25,7 @@ export const CreativeSelect: React.FC<CreativeSelectProps> = ({
   onChange,
   className,
   disabled = false,
+  variant = "default",
 }) => {
   const [isOpen, setIsOpen] = useState(false)
   const containerRef = useRef<HTMLDivElement>(null)
@@ -57,9 +59,16 @@ export const CreativeSelect: React.FC<CreativeSelectProps> = ({
         disabled={disabled}
         onClick={() => setIsOpen((prev) => !prev)}
         className={cn(
-          "group relative flex h-8 w-full items-center justify-between overflow-hidden rounded-xl border border-border bg-secondary/40 px-2 text-sm font-medium transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2",
-          disabled ? "cursor-not-allowed opacity-50" : "cursor-pointer hover:border-foreground/10 active:border-foreground/12",
-          isOpen && "border-foreground/15"
+          "group relative flex h-8 w-full items-center justify-between overflow-hidden rounded-xl text-sm font-medium transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2",
+          variant === "default"
+            ? "border border-border bg-secondary/40 px-2"
+            : "border border-transparent bg-transparent px-1.5 hover:bg-secondary/30",
+          disabled
+            ? "cursor-not-allowed opacity-50"
+            : variant === "default"
+            ? "cursor-pointer hover:border-foreground/10 active:border-foreground/12"
+            : "cursor-pointer",
+          isOpen && (variant === "default" ? "border-foreground/15" : "bg-secondary/40")
         )}
       >
         {/* Label on the left */}

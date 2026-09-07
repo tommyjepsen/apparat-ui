@@ -6,6 +6,7 @@ import {
   CreativeColorPicker,
   CreativeNumberInput,
   CreativeSegmentedControl,
+  CreativeEasingCurve,
 } from "../molecules"
 import { CreativeButton, DotPattern, Label } from "../atoms"
 import { FloatingToolbar } from "../organisms"
@@ -132,6 +133,10 @@ export const CanvasEditor: React.FC = () => {
                   unit="px"
                 />
               </div>
+            </div>
+
+            <div className="space-y-3">
+              <CreativeEasingCurve label="Motion Curve" />
             </div>
 
             <div className="mt-auto pt-2 flex items-center gap-2">
