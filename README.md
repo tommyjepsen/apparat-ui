@@ -1,4 +1,6 @@
-# tool-ui
+# Creative tool UI
+
+> The UI Components for built for creating a better experience of using your creative tools.
 
 An open-source UI component library designed specifically for building modern, high-precision **creative tools**, editors, canvas workspaces, and developer interfaces.
 

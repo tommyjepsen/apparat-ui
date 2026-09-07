@@ -372,7 +372,7 @@ export function App() {
         }`}
       >
         <div className="flex items-center gap-6">
-          <span className="font-mono text-[10px] font-semibold tracking-tight">tool-ui</span>
+          <span className="font-mono text-[10px] font-semibold tracking-tight">creative tool ui</span>
           <nav className="flex items-center gap-3 font-mono text-[10px]">
             {(["all", "atoms", "molecules", "organisms", "templates"] as const).map((tab) => (
               <button
