@@ -73,52 +73,39 @@ export const VectorDrawingEditor: React.FC = () => {
           <section className="relative flex flex-1 items-center justify-center bg-muted/40 p-6 overflow-hidden">
             <DotPattern size={16} radius={1} />
 
-            {/* Vector SVG Artboard */}
-            <div className="relative z-10 aspect-square w-full max-w-[340px] rounded-xl border border-border bg-background shadow-xl p-4 flex items-center justify-center">
+            {/* Vector Artboard (Poster Ratio ~3:4 with pure dots visuals) */}
+            <div className="relative z-10 w-[240px] sm:w-[280px] aspect-[3/4] rounded-sm border border-border/80 bg-[#ECEBE7] p-6 flex items-center justify-center select-none transition-transform duration-150">
               <svg
-                viewBox="0 0 200 200"
-                className="h-full w-full overflow-visible"
+                viewBox="0 0 152 196"
+                className="w-full max-w-[175px] h-auto"
                 style={{
                   transform: `rotate(${rotation}deg)`,
                   opacity: opacity / 100,
                 }}
               >
-                {/* Background Shape */}
-                <rect
-                  x="25"
-                  y="25"
-                  width="150"
-                  height="150"
-                  rx="24"
-                  fill={fillColor}
-                  stroke={strokeColor}
-                  strokeWidth={strokeWidth}
-                  strokeLinejoin={strokeJoin as any}
-                  strokeDasharray={dashArray > 0 ? `${dashArray} ${dashArray}` : undefined}
-                />
+                {/* Row 1 */}
+                <circle cx="28" cy="18" r="10" fill="#171717" />
 
-                {/* Decorative Vector Path & Control Handles */}
-                <path
-                  d="M 50 150 C 60 70, 140 130, 150 50"
-                  fill="none"
-                  stroke="#EA580C"
-                  strokeWidth="2.5"
-                  strokeLinecap="round"
-                />
+                {/* Row 2 */}
+                <circle cx="28" cy="50" r="10" fill="#171717" />
+                <circle cx="60" cy="50" r="10" fill="#171717" />
 
-                {/* Control Points & Tangents */}
-                <line x1="50" y1="150" x2="60" y2="70" stroke="#EA580C" strokeWidth="1" strokeDasharray="3 3" opacity="0.6" />
-                <line x1="150" y1="50" x2="140" y2="130" stroke="#EA580C" strokeWidth="1" strokeDasharray="3 3" opacity="0.6" />
+                {/* Row 3 */}
+                <circle cx="28" cy="82" r="10" fill="#171717" />
+                <circle cx="60" cy="82" r="10" fill="#171717" />
+                <circle cx="92" cy="82" r="10" fill="#171717" />
+                <circle cx="124" cy="82" r="10" fill="#171717" />
 
-                <circle cx="50" cy="150" r="4" fill="#FFFFFF" stroke="#EA580C" strokeWidth="2" />
-                <circle cx="60" cy="70" r="3" fill="#EA580C" />
-                <circle cx="140" cy="130" r="3" fill="#EA580C" />
-                <circle cx="150" cy="50" r="4" fill="#FFFFFF" stroke="#EA580C" strokeWidth="2" />
+                {/* Row 4 */}
+                <circle cx="28" cy="114" r="10" fill="#171717" />
+
+                {/* Row 5: Black dot + Accent Dot reacting to active stroke color */}
+                <circle cx="28" cy="146" r="10" fill="#171717" />
+                <circle cx="60" cy="146" r="10" fill={strokeColor || "#EA580C"} />
+
+                {/* Row 6 */}
+                <circle cx="28" cy="178" r="10" fill="#171717" />
               </svg>
-
-              <div className="absolute top-2.5 left-2.5 rounded-md bg-secondary/80 px-2 py-0.5 font-mono text-[8px] uppercase tracking-wider text-muted-foreground backdrop-blur-sm">
-                200 × 200 px
-              </div>
             </div>
 
             {/* Centered Bottom Floating Toolbar */}

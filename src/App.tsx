@@ -5,6 +5,9 @@ import {
   CreativeButton,
   SlidingNumber,
   DotPattern,
+  StatusBadge,
+  StatusDot,
+  MicroKbd,
   CreativeSlider,
   CreativeSelect,
   CreativeToggle,
@@ -19,15 +22,25 @@ import {
   CreativeRangeSlider,
   CreativeBoxModel,
   CreativeGradientSlider,
+  CreativeAlignmentMatrix,
+  CreativeSpringPhysics,
+  CreativeHistogramLevels,
+  CreativeFontPicker,
+  CreativeMaskControl,
+  CreativeAudioWaveform,
+  CreativeNodeItem,
   PropertyInspector,
   FloatingToolbar,
   MotionSidebar,
   LayerTree,
   KeyframeTimeline,
   ToolCommandPalette,
+  ShaderNodeGraph,
+  ExportPresetsDialog,
   CanvasEditor,
   MotionVideoEditor,
   VectorDrawingEditor,
+  WorkflowNodeBuilder,
 } from "@/components/tool-ui"
 import { CodeModal } from "@/components/code-modal"
 
@@ -36,6 +49,9 @@ import labelRawCode from "@/components/tool-ui/atoms/label.tsx?raw"
 import creativeButtonRawCode from "@/components/tool-ui/atoms/creative-button.tsx?raw"
 import slidingNumberRawCode from "@/components/tool-ui/atoms/sliding-number.tsx?raw"
 import dotPatternRawCode from "@/components/tool-ui/atoms/dot-pattern.tsx?raw"
+import statusBadgeRawCode from "@/components/tool-ui/atoms/status-badge.tsx?raw"
+import statusDotRawCode from "@/components/tool-ui/atoms/status-dot.tsx?raw"
+import microKbdRawCode from "@/components/tool-ui/atoms/micro-kbd.tsx?raw"
 import creativeSliderRawCode from "@/components/tool-ui/molecules/creative-slider.tsx?raw"
 import creativeSelectRawCode from "@/components/tool-ui/molecules/creative-select.tsx?raw"
 import creativeToggleRawCode from "@/components/tool-ui/molecules/creative-toggle.tsx?raw"
@@ -50,20 +66,30 @@ import creativeAngleKnobRawCode from "@/components/tool-ui/molecules/creative-an
 import creativeRangeSliderRawCode from "@/components/tool-ui/molecules/creative-range-slider.tsx?raw"
 import creativeBoxModelRawCode from "@/components/tool-ui/molecules/creative-box-model.tsx?raw"
 import creativeGradientSliderRawCode from "@/components/tool-ui/molecules/creative-gradient-slider.tsx?raw"
+import creativeAlignmentMatrixRawCode from "@/components/tool-ui/molecules/creative-alignment-matrix.tsx?raw"
+import creativeSpringPhysicsRawCode from "@/components/tool-ui/molecules/creative-spring-physics.tsx?raw"
+import creativeHistogramLevelsRawCode from "@/components/tool-ui/molecules/creative-histogram-levels.tsx?raw"
+import creativeFontPickerRawCode from "@/components/tool-ui/molecules/creative-font-picker.tsx?raw"
+import creativeMaskControlRawCode from "@/components/tool-ui/molecules/creative-mask-control.tsx?raw"
+import creativeAudioWaveformRawCode from "@/components/tool-ui/molecules/creative-audio-waveform.tsx?raw"
+import creativeNodeItemRawCode from "@/components/tool-ui/molecules/creative-node-item.tsx?raw"
 import propertyInspectorRawCode from "@/components/tool-ui/organisms/property-inspector.tsx?raw"
 import floatingToolbarRawCode from "@/components/tool-ui/organisms/floating-toolbar.tsx?raw"
 import motionSidebarRawCode from "@/components/tool-ui/organisms/motion-sidebar.tsx?raw"
 import layerTreeRawCode from "@/components/tool-ui/organisms/layer-tree.tsx?raw"
 import keyframeTimelineRawCode from "@/components/tool-ui/organisms/keyframe-timeline.tsx?raw"
 import toolCommandPaletteRawCode from "@/components/tool-ui/organisms/tool-command-palette.tsx?raw"
+import shaderNodeGraphRawCode from "@/components/tool-ui/organisms/shader-node-graph.tsx?raw"
+import exportPresetsDialogRawCode from "@/components/tool-ui/organisms/export-presets-dialog.tsx?raw"
 import canvasEditorRawCode from "@/components/tool-ui/templates/canvas-editor.tsx?raw"
 import motionVideoEditorRawCode from "@/components/tool-ui/templates/motion-video-editor.tsx?raw"
 import vectorDrawingEditorRawCode from "@/components/tool-ui/templates/vector-drawing-editor.tsx?raw"
+import workflowNodeBuilderRawCode from "@/components/tool-ui/templates/workflow-node-builder.tsx?raw"
 
 export function App() {
   const [activeTab, setActiveTab] = useState<
-    "all" | "atoms" | "molecules" | "organisms" | "templates"
-  >("all")
+    "home" | "atoms" | "molecules" | "organisms" | "templates"
+  >("home")
   const [blendMode, setBlendMode] = useState("normal")
   const [gridEnabled, setGridEnabled] = useState(true)
   const [accentColor, setAccentColor] = useState("#EA580C")
@@ -186,6 +212,63 @@ export function App() {
           <span className="relative z-10 rounded-md border border-border/50 bg-secondary/80 px-2 py-0.5 font-mono text-[9px] uppercase tracking-wider text-muted-foreground backdrop-blur-sm">
             Pattern BG
           </span>
+        </div>
+      ),
+    },
+    {
+      id: "status-badge",
+      num: "05",
+      title: "status badge",
+      file: "status-badge.tsx",
+      code: statusBadgeRawCode,
+      render: (
+        <div className="flex flex-wrap items-center justify-center gap-2 self-center max-w-[220px]">
+          <StatusBadge status="online" label="Engine Active" />
+          <StatusBadge status="rendering" label="Rendering" />
+          <StatusBadge status="accent" label="Spring 60fps" />
+          <StatusBadge status="draft" label="Unsaved" pulse={false} />
+        </div>
+      ),
+    },
+    {
+      id: "status-dot",
+      num: "06",
+      title: "status dot",
+      file: "status-dot.tsx",
+      code: statusDotRawCode,
+      render: (
+        <div className="flex flex-col items-center justify-center gap-3 self-center">
+          <div className="flex items-center gap-4 rounded-xl border border-border/80 bg-secondary/30 px-4 py-2.5">
+            <StatusDot status="online" size="lg" />
+            <StatusDot status="rendering" size="lg" />
+            <StatusDot status="accent" size="lg" />
+            <StatusDot status="error" size="lg" />
+            <StatusDot status="draft" size="lg" pulse={false} />
+          </div>
+          <span className="font-mono text-[9px] text-muted-foreground">pulsing activity indicators</span>
+        </div>
+      ),
+    },
+    {
+      id: "micro-kbd",
+      num: "07",
+      title: "micro kbd",
+      file: "micro-kbd.tsx",
+      code: microKbdRawCode,
+      render: (
+        <div className="flex flex-col items-center justify-center gap-2.5 self-center">
+          <div className="flex items-center gap-2">
+            <span className="font-mono text-[9px] text-muted-foreground">Export:</span>
+            <MicroKbd keys={["⌘", "Shift", "E"]} />
+          </div>
+          <div className="flex items-center gap-2">
+            <span className="font-mono text-[9px] text-muted-foreground">Command:</span>
+            <MicroKbd keys={["⌘", "K"]} />
+          </div>
+          <div className="flex items-center gap-2">
+            <span className="font-mono text-[9px] text-muted-foreground">Pen Tool:</span>
+            <MicroKbd keys={["P"]} />
+          </div>
         </div>
       ),
     },
@@ -427,6 +510,95 @@ export function App() {
         </div>
       ),
     },
+    {
+      id: "alignment-matrix",
+      num: "15",
+      title: "anchor matrix",
+      file: "creative-alignment-matrix.tsx",
+      code: creativeAlignmentMatrixRawCode,
+      render: (
+        <div className="w-full max-w-[240px] self-center">
+          <CreativeAlignmentMatrix label="Anchor" value="center" />
+        </div>
+      ),
+    },
+    {
+      id: "spring-physics",
+      num: "16",
+      title: "spring physics",
+      file: "creative-spring-physics.tsx",
+      code: creativeSpringPhysicsRawCode,
+      render: (
+        <div className="w-full max-w-[240px] self-center">
+          <CreativeSpringPhysics label="Spring" stiffness={180} damping={22} />
+        </div>
+      ),
+    },
+    {
+      id: "histogram-levels",
+      num: "17",
+      title: "histogram levels",
+      file: "creative-histogram-levels.tsx",
+      code: creativeHistogramLevelsRawCode,
+      render: (
+        <div className="w-full max-w-[240px] self-center">
+          <CreativeHistogramLevels label="Levels" blackPoint={20} whitePoint={235} />
+        </div>
+      ),
+    },
+    {
+      id: "font-picker",
+      num: "18",
+      title: "font picker",
+      file: "creative-font-picker.tsx",
+      code: creativeFontPickerRawCode,
+      render: (
+        <div className="w-full max-w-[240px] self-center">
+          <CreativeFontPicker label="Typeface" fontFamily="Inter" weight="Medium" />
+        </div>
+      ),
+    },
+    {
+      id: "mask-control",
+      num: "19",
+      title: "mask mode",
+      file: "creative-mask-control.tsx",
+      code: creativeMaskControlRawCode,
+      render: (
+        <div className="w-full max-w-[240px] self-center">
+          <CreativeMaskControl label="Mask" value="clipping" />
+        </div>
+      ),
+    },
+    {
+      id: "audio-waveform",
+      num: "20",
+      title: "audio waveform",
+      file: "creative-audio-waveform.tsx",
+      code: creativeAudioWaveformRawCode,
+      render: (
+        <div className="w-full max-w-[240px] self-center">
+          <CreativeAudioWaveform label="Track" progress={42} />
+        </div>
+      ),
+    },
+    {
+      id: "node-item",
+      num: "21",
+      title: "node item",
+      file: "creative-node-item.tsx",
+      code: creativeNodeItemRawCode,
+      render: (
+        <div className="flex items-center justify-center self-center">
+          <CreativeNodeItem
+            title="Color Ramp"
+            nodeType="filter"
+            inputs={["factor", "color_in"]}
+            outputs={["rgba", "alpha"]}
+          />
+        </div>
+      ),
+    },
   ]
 
   return (
@@ -440,7 +612,7 @@ export function App() {
         <div className="flex flex-wrap items-center gap-4 sm:gap-8">
           <span className="font-mono text-[10px] font-semibold tracking-tight">creative tool ui</span>
           <nav className="flex items-center gap-4 sm:gap-5 overflow-x-auto font-mono text-[10px] [scrollbar-width:none] [-ms-overflow-style:none] [&::-webkit-scrollbar]:hidden">
-            {(["all", "atoms", "molecules", "organisms", "templates"] as const).map((tab) => (
+            {(["home", "atoms", "molecules", "organisms", "templates"] as const).map((tab) => (
               <button
                 key={tab}
                 onClick={() => setActiveTab(tab)}
@@ -621,6 +793,26 @@ export function App() {
                 <VectorDrawingEditor />
               </div>
             </div>
+
+            {/* Template 04: Workflow Creative Node Builder */}
+            <div className="flex flex-col gap-3">
+              <div className="flex items-center justify-between">
+                <span className="font-mono text-[10px] uppercase tracking-wider text-muted-foreground">
+                  04 / WORKFLOW CREATIVE BUILDER
+                </span>
+                <button
+                  onClick={() => openCode("workflow-node-builder.tsx", workflowNodeBuilderRawCode)}
+                  className="flex items-center gap-1 rounded-md border border-border bg-secondary/50 px-2 py-1 font-mono text-[11px] text-muted-foreground transition-all hover:bg-secondary hover:text-foreground active:scale-95"
+                  title="View code"
+                >
+                  <Code2 className="h-3 w-3" />
+                  <span>code</span>
+                </button>
+              </div>
+              <div className="w-full overflow-x-auto pb-2 [scrollbar-width:none] [-ms-overflow-style:none] [&::-webkit-scrollbar]:hidden">
+                <WorkflowNodeBuilder />
+              </div>
+            </div>
           </div>
         </main>
       ) : activeTab === "organisms" ? (
@@ -745,40 +937,101 @@ export function App() {
                 <ToolCommandPalette onToggleTheme={() => setIsDark((prev) => !prev)} />
               </div>
             </div>
+
+            {/* Organism 07: Shader Node Graph */}
+            <div className="flex flex-col gap-4 rounded-xl bg-card p-4 sm:p-6">
+              <div className="flex items-center justify-between">
+                <span className="font-mono text-[10px] uppercase tracking-wider text-muted-foreground">
+                  07 / SHADER NODE GRAPH
+                </span>
+                <button
+                  onClick={() => openCode("shader-node-graph.tsx", shaderNodeGraphRawCode)}
+                  className="flex items-center gap-1 rounded-md border border-border bg-secondary/50 px-2 py-1 font-mono text-[11px] text-muted-foreground transition-all hover:bg-secondary hover:text-foreground active:scale-95"
+                  title="View code"
+                >
+                  <Code2 className="h-3 w-3" />
+                  <span>code</span>
+                </button>
+              </div>
+              <div className="flex justify-center p-2 sm:p-4">
+                <ShaderNodeGraph />
+              </div>
+            </div>
+
+            {/* Organism 08: Export Presets Dialog */}
+            <div className="flex flex-col gap-4 rounded-xl bg-card p-4 sm:p-6">
+              <div className="flex items-center justify-between">
+                <span className="font-mono text-[10px] uppercase tracking-wider text-muted-foreground">
+                  08 / EXPORT PRESETS DIALOG
+                </span>
+                <button
+                  onClick={() => openCode("export-presets-dialog.tsx", exportPresetsDialogRawCode)}
+                  className="flex items-center gap-1 rounded-md border border-border bg-secondary/50 px-2 py-1 font-mono text-[11px] text-muted-foreground transition-all hover:bg-secondary hover:text-foreground active:scale-95"
+                  title="View code"
+                >
+                  <Code2 className="h-3 w-3" />
+                  <span>code</span>
+                </button>
+              </div>
+              <div className="flex justify-center p-2 sm:p-4">
+                <ExportPresetsDialog />
+              </div>
+            </div>
+          </div>
+        </main>
+      ) : activeTab === "home" ? (
+        <main className="mx-auto max-w-4xl px-4 sm:px-6 pb-16">
+          <div className="mb-8 max-w-xs space-y-2">
+            <h1 className="font-mono text-xs font-semibold uppercase tracking-wider text-foreground">
+              Build creative tools faster
+            </h1>
+            <p className="font-mono text-[11px] leading-relaxed text-muted-foreground">
+              A tactile UI component library designed for creative software, editors, and canvas tools. Created by Tommy Jepsen -{" "}
+              <a
+                href="http://x.com/tommy_jepsen"
+                target="_blank"
+                rel="noreferrer"
+                className="text-foreground underline underline-offset-2 decoration-border transition-colors hover:text-accent hover:decoration-accent"
+              >
+                X
+              </a>{" "}
+              and{" "}
+              <a
+                href="https://www.linkedin.com/in/toje"
+                target="_blank"
+                rel="noreferrer"
+                className="text-foreground underline underline-offset-2 decoration-border transition-colors hover:text-accent hover:decoration-accent"
+              >
+                LinkedIn
+              </a>
+              .
+            </p>
+          </div>
+
+          {/* Featured Example: 02 / PROPERTY INSPECTOR */}
+          <div className="flex flex-col gap-4 rounded-xl bg-card p-4 sm:p-6">
+            <div className="flex items-center justify-between">
+              <span className="font-mono text-[10px] uppercase tracking-wider text-muted-foreground">
+                02 / PROPERTY INSPECTOR
+              </span>
+              <button
+                onClick={() => openCode("property-inspector.tsx", propertyInspectorRawCode)}
+                className="flex items-center gap-1 rounded-md border border-border bg-secondary/50 px-2 py-1 font-mono text-[11px] text-muted-foreground transition-all hover:bg-secondary hover:text-foreground active:scale-95"
+                title="View code"
+              >
+                <Code2 className="h-3 w-3" />
+                <span>code</span>
+              </button>
+            </div>
+            <div className="flex justify-center p-2 sm:p-4">
+              <PropertyInspector />
+            </div>
           </div>
         </main>
       ) : (
         <main className="mx-auto max-w-4xl px-4 sm:px-6 pb-16">
-          {activeTab === "all" && (
-            <div className="mb-8 max-w-xs space-y-2">
-              <h1 className="font-mono text-xs font-semibold uppercase tracking-wider text-foreground">
-                Build creative tools faster
-              </h1>
-              <p className="font-mono text-[11px] leading-relaxed text-muted-foreground">
-                A tactile UI component library designed for creative software, editors, and canvas tools. Created by Tommy Jepsen -{" "}
-                <a
-                  href="http://x.com/tommy_jepsen"
-                  target="_blank"
-                  rel="noreferrer"
-                  className="text-foreground underline underline-offset-2 decoration-border transition-colors hover:text-accent hover:decoration-accent"
-                >
-                  X
-                </a>{" "}
-                and{" "}
-                <a
-                  href="https://www.linkedin.com/in/toje"
-                  target="_blank"
-                  rel="noreferrer"
-                  className="text-foreground underline underline-offset-2 decoration-border transition-colors hover:text-accent hover:decoration-accent"
-                >
-                  LinkedIn
-                </a>
-                .
-              </p>
-            </div>
-          )}
           <div className="grid grid-cols-1 gap-4 sm:gap-6 sm:grid-cols-2">
-            {(activeTab === "all" || activeTab === "atoms") &&
+            {activeTab === "atoms" &&
               atomCards.map((card) => (
                 <div
                   key={card.id}
@@ -804,7 +1057,7 @@ export function App() {
                 </div>
               ))}
 
-            {(activeTab === "all" || activeTab === "molecules") &&
+            {activeTab === "molecules" &&
               moleculeCards.map((card) => (
                 <div
                   key={card.id}

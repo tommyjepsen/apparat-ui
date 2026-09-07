@@ -102,7 +102,7 @@ export const MotionVideoEditor: React.FC = () => {
             <DotPattern size={20} radius={1.2} />
 
             {/* Video Preview Frame */}
-            <div className="relative z-10 aspect-video w-full max-w-[440px] rounded-xl border border-border bg-background/90 shadow-2xl flex flex-col items-center justify-center overflow-hidden">
+            <div className="relative z-10 aspect-video w-full max-w-[440px] rounded-xl border border-border bg-background/90 flex flex-col items-center justify-center overflow-hidden">
               <div className="absolute top-3 left-3 flex items-center gap-1.5 rounded-md bg-secondary/80 px-2 py-0.5 font-mono text-[8px] uppercase tracking-wider text-muted-foreground backdrop-blur-sm">
                 <Video className="h-2.5 w-2.5 text-accent" />
                 <span>Sequence 01 — {resolution}</span>
@@ -110,7 +110,7 @@ export const MotionVideoEditor: React.FC = () => {
 
               {/* Animated Graphic Indicator */}
               <div className="relative flex flex-col items-center gap-3">
-                <div className="relative flex h-16 w-16 items-center justify-center rounded-2xl border border-accent/40 bg-accent/10 shadow-lg transition-transform hover:scale-110">
+                <div className="relative flex h-16 w-16 items-center justify-center rounded-2xl border border-accent/40 bg-accent/10 transition-transform hover:scale-110">
                   <Sparkles className="h-6 w-6 text-accent animate-pulse" />
                 </div>
                 <div className="flex flex-col items-center gap-1">
