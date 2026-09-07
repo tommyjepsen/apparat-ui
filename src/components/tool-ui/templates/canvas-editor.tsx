@@ -25,7 +25,7 @@ export const CanvasEditor: React.FC = () => {
   const [canvasColor, setCanvasColor] = useState<string>("#FFFFFF")
 
   return (
-    <div className="mx-auto w-full min-w-[80vw] max-w-7xl px-6 pb-20">
+    <div className="mx-auto w-full min-w-[760px] max-w-7xl px-2 sm:px-6 pb-20">
       {/* Container Card in 16:9 Aspect Ratio */}
       <div className="aspect-video w-full overflow-hidden rounded-xl border border-border bg-card">
         {/* Editor Mockup Shell */}

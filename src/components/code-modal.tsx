@@ -51,8 +51,7 @@ export const CodeModal: React.FC<CodeModalProps> = ({
         {/* Header */}
         <div className="flex items-center justify-between border-b border-border px-5 py-3.5">
           <div className="flex items-center gap-2">
-            <span className="h-2 w-2 rounded-full bg-primary" />
-            <h3 className="font-semibold text-foreground text-sm sm:text-base">
+            <h3 className="font-mono text-xs sm:text-sm font-semibold uppercase tracking-wider text-foreground">
               {title}
             </h3>
           </div>

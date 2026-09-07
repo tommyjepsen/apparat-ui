@@ -1,5 +1,5 @@
 import { useState, useEffect } from "react"
-import { Code2, Moon, Sun, Download, Sparkles, Copy, AlignLeft, AlignCenter, AlignRight } from "lucide-react"
+import { Code2, Moon, Sun, Download, Sparkles, Copy, AlignLeft, AlignCenter, AlignRight, Monitor } from "lucide-react"
 import {
   Label,
   CreativeButton,
@@ -367,18 +367,18 @@ export function App() {
     <div className="min-h-screen bg-background text-foreground transition-colors duration-150">
       {/* Minimal Header */}
       <header
-        className={`mx-auto flex items-center justify-between px-6 py-6 transition-all duration-150 ${
-          activeTab === "templates" ? "w-fit min-w-[80vw] max-w-7xl" : "max-w-4xl"
+        className={`mx-auto flex flex-wrap items-center justify-between gap-y-3 px-4 py-4 sm:px-6 sm:py-6 transition-all duration-150 ${
+          activeTab === "templates" ? "w-full max-w-7xl" : "max-w-4xl"
         }`}
       >
-        <div className="flex items-center gap-6">
+        <div className="flex flex-wrap items-center gap-3 sm:gap-6">
           <span className="font-mono text-[10px] font-semibold tracking-tight">creative tool ui</span>
-          <nav className="flex items-center gap-3 font-mono text-[10px]">
+          <nav className="flex items-center gap-2.5 overflow-x-auto font-mono text-[10px] [scrollbar-width:none] [-ms-overflow-style:none] [&::-webkit-scrollbar]:hidden">
             {(["all", "atoms", "molecules", "organisms", "templates"] as const).map((tab) => (
               <button
                 key={tab}
                 onClick={() => setActiveTab(tab)}
-                className={`transition-colors ${
+                className={`whitespace-nowrap transition-colors ${
                   activeTab === tab
                     ? "font-medium text-foreground"
                     : "text-muted-foreground hover:text-foreground"
@@ -390,18 +390,111 @@ export function App() {
           </nav>
         </div>
 
-        <button
-          onClick={() => setIsDark((prev) => !prev)}
-          className="rounded-md p-2 text-muted-foreground transition-colors hover:bg-muted hover:text-foreground"
-          aria-label="Toggle theme"
-        >
-          {isDark ? <Sun className="h-4 w-4" /> : <Moon className="h-4 w-4" />}
-        </button>
+        <div className="flex items-center gap-0.5">
+          {/* X (Twitter) */}
+          <div className="group relative flex items-center justify-center">
+            <a
+              href="http://twitter.com/tommy_jepsen"
+              target="_blank"
+              rel="noreferrer"
+              className="flex h-8 w-8 items-center justify-center rounded-md text-muted-foreground transition-colors hover:bg-muted hover:text-foreground"
+              aria-label="X (Twitter)"
+            >
+              <svg
+                viewBox="0 0 24 24"
+                width="13"
+                height="13"
+                fill="currentColor"
+                className="h-3 w-3"
+              >
+                <path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z" />
+              </svg>
+            </a>
+            <div className="pointer-events-none absolute top-full mt-1.5 whitespace-nowrap rounded-md border border-border/60 bg-popover px-1.5 py-0.5 font-mono text-[8px] uppercase tracking-wider text-popover-foreground opacity-0 transition-opacity duration-150 group-hover:opacity-100 z-50">
+              Creator
+            </div>
+          </div>
+
+          {/* LinkedIn */}
+          <div className="group relative flex items-center justify-center">
+            <a
+              href="https://www.linkedin.com/in/toje"
+              target="_blank"
+              rel="noreferrer"
+              className="flex h-8 w-8 items-center justify-center rounded-md text-muted-foreground transition-colors hover:bg-muted hover:text-foreground"
+              aria-label="LinkedIn"
+            >
+              <svg
+                viewBox="0 0 24 24"
+                width="13"
+                height="13"
+                fill="currentColor"
+                className="h-3 w-3"
+              >
+                <path d="M19 3a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h14m-.5 15.5v-5.3a3.26 3.26 0 0 0-3.26-3.26c-.85 0-1.84.52-2.28 1.3v-1.11h-2.79v8.37h2.79v-4.93c0-.77.62-1.4 1.39-1.4a1.4 1.4 0 0 1 1.4 1.4v4.93h2.75M6.46 8.76a1.64 1.64 0 1 0 0-3.28 1.64 1.64 0 0 0 0 3.28M7.86 18.5v-8.37H5.07v8.37h2.79z" />
+              </svg>
+            </a>
+            <div className="pointer-events-none absolute top-full mt-1.5 whitespace-nowrap rounded-md border border-border/60 bg-popover px-1.5 py-0.5 font-mono text-[8px] uppercase tracking-wider text-popover-foreground opacity-0 transition-opacity duration-150 group-hover:opacity-100 z-50">
+              Creator
+            </div>
+          </div>
+
+          {/* GitHub */}
+          <div className="group relative flex items-center justify-center">
+            <a
+              href="https://github.com/tommyjepsen/creative-tool-ui"
+              target="_blank"
+              rel="noreferrer"
+              className="flex h-8 w-8 items-center justify-center rounded-md text-muted-foreground transition-colors hover:bg-muted hover:text-foreground"
+              aria-label="GitHub Repository"
+            >
+              <svg
+                viewBox="0 0 24 24"
+                width="14"
+                height="14"
+                fill="none"
+                stroke="currentColor"
+                strokeWidth="1.5"
+                strokeLinecap="round"
+                strokeLinejoin="round"
+                className="h-3.5 w-3.5"
+              >
+                <path d="M15 22v-4a4.8 4.8 0 0 0-1-3.5c3 0 6-2 6-5.5.08-1.25-.27-2.48-1-3.5.28-1.15.28-2.35 0-3.5 0 0-1 0-3 1.5-2.64-.5-5.36-.5-8 0C6 2 5 2 5 2c-.3 1.15-.3 2.35 0 3.5A5.403 5.403 0 0 0 4 9c0 3.5 3 5.5 6 5.5-.39.49-.68 1.05-.85 1.65-.17.6-.22 1.23-.15 1.85v4" />
+                <path d="M9 18c-4.51 2-5-2-7-2" />
+              </svg>
+            </a>
+            <div className="pointer-events-none absolute top-full mt-1.5 whitespace-nowrap rounded-md border border-border/60 bg-popover px-1.5 py-0.5 font-mono text-[8px] uppercase tracking-wider text-popover-foreground opacity-0 transition-opacity duration-150 group-hover:opacity-100 z-50">
+              Open Source Repository
+            </div>
+          </div>
+
+          <div className="mx-1 h-3.5 w-px bg-border" />
+
+          {/* Theme Toggle */}
+          <div className="group relative flex items-center justify-center">
+            <button
+              onClick={() => setIsDark((prev) => !prev)}
+              className="flex h-8 w-8 items-center justify-center rounded-md text-muted-foreground transition-colors hover:bg-muted hover:text-foreground"
+              aria-label="Toggle theme"
+            >
+              {isDark ? <Sun /> : <Moon />}
+            </button>
+            <div className="pointer-events-none absolute top-full mt-1.5 whitespace-nowrap rounded-md border border-border/60 bg-popover px-1.5 py-0.5 font-mono text-[8px] uppercase tracking-wider text-popover-foreground opacity-0 transition-opacity duration-150 group-hover:opacity-100 z-50">
+              {isDark ? "Light Mode" : "Dark Mode"}
+            </div>
+          </div>
+        </div>
       </header>
 
-      {/* Main Content */}
+      {/* Mobile-only Notice Bar */}
+      <div className="mx-auto flex sm:hidden max-w-4xl px-4 pb-4">
+        <div className="flex w-full items-center justify-center gap-1.5 rounded-xl border border-border/70 bg-secondary/30 px-3 py-2 font-mono text-[9px] uppercase tracking-wider text-muted-foreground">
+          <Monitor className="h-3 w-3 text-accent" />
+          <span>Optimized for desktop only</span>
+        </div>
+      </div>
       {activeTab === "templates" ? (
-        <main className="mx-auto w-full min-w-[80vw] max-w-7xl px-6 pb-16">
+        <main className="mx-auto w-full max-w-7xl px-4 sm:px-6 pb-16">
           <div className="mb-4 flex items-center justify-between">
             <span className="font-mono text-[10px] uppercase tracking-wider text-muted-foreground">
               TEMPLATE / CANVAS EDITOR
@@ -415,13 +508,15 @@ export function App() {
               <span>code</span>
             </button>
           </div>
-          <CanvasEditor />
+          <div className="w-full overflow-x-auto pb-4 [scrollbar-width:none] [-ms-overflow-style:none] [&::-webkit-scrollbar]:hidden">
+            <CanvasEditor />
+          </div>
         </main>
       ) : activeTab === "organisms" ? (
-        <main className="mx-auto max-w-4xl px-6 pb-16">
-          <div className="flex flex-col gap-6 py-6">
+        <main className="mx-auto max-w-4xl px-4 sm:px-6 pb-16">
+          <div className="flex flex-col gap-6 py-4 sm:py-6">
             {/* Organism 01: Floating Toolbar */}
-            <div className="flex flex-col gap-4 rounded-xl bg-card p-6">
+            <div className="flex flex-col gap-4 rounded-xl bg-card p-4 sm:p-6">
               <div className="flex items-center justify-between">
                 <span className="font-mono text-[10px] uppercase tracking-wider text-muted-foreground">
                   01 / FLOATING TOOLBAR
@@ -435,13 +530,13 @@ export function App() {
                   <span>code</span>
                 </button>
               </div>
-              <div className="flex min-h-[120px] items-center justify-center rounded-lg border border-border/40 bg-background/50 p-6">
+              <div className="flex min-h-[120px] items-center justify-center overflow-x-auto rounded-lg border border-border/40 bg-background/50 p-4 sm:p-6">
                 <FloatingToolbar />
               </div>
             </div>
 
             {/* Organism 02: Property Inspector */}
-            <div className="flex flex-col gap-4 rounded-xl bg-card p-6">
+            <div className="flex flex-col gap-4 rounded-xl bg-card p-4 sm:p-6">
               <div className="flex items-center justify-between">
                 <span className="font-mono text-[10px] uppercase tracking-wider text-muted-foreground">
                   02 / PROPERTY INSPECTOR
@@ -455,13 +550,13 @@ export function App() {
                   <span>code</span>
                 </button>
               </div>
-              <div className="flex justify-center p-4">
+              <div className="flex justify-center p-2 sm:p-4">
                 <PropertyInspector />
               </div>
             </div>
 
             {/* Organism 03: Motion Customizer Sidebar */}
-            <div className="flex flex-col gap-4 rounded-xl bg-card p-6">
+            <div className="flex flex-col gap-4 rounded-xl bg-card p-4 sm:p-6">
               <div className="flex items-center justify-between">
                 <span className="font-mono text-[10px] uppercase tracking-wider text-muted-foreground">
                   03 / MOTION CUSTOMIZER
@@ -475,15 +570,15 @@ export function App() {
                   <span>code</span>
                 </button>
               </div>
-              <div className="flex justify-center p-4">
+              <div className="flex justify-center p-2 sm:p-4">
                 <MotionSidebar />
               </div>
             </div>
           </div>
         </main>
       ) : (
-        <main className="mx-auto max-w-4xl px-6 pb-16">
-          <div className="grid grid-cols-1 gap-6 sm:grid-cols-2">
+        <main className="mx-auto max-w-4xl px-4 sm:px-6 pb-16">
+          <div className="grid grid-cols-1 gap-4 sm:gap-6 sm:grid-cols-2">
             {(activeTab === "all" || activeTab === "atoms") &&
               atomCards.map((card) => (
                 <div
