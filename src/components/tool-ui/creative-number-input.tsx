@@ -126,7 +126,7 @@ export const CreativeNumberInput: React.FC<CreativeNumberInputProps> = ({
           ? "cursor-not-allowed opacity-50"
           : isEditing
           ? "cursor-text"
-          : "cursor-ew-resize hover:border-foreground/20 active:border-foreground/25",
+          : "cursor-ew-resize hover:border-foreground/10 active:border-foreground/12",
         className
       )}
     >

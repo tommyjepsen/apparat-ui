@@ -27,7 +27,7 @@ export const CreativeToggle: React.FC<CreativeToggleProps> = ({
       onClick={() => onChange(!checked)}
       className={cn(
         "group relative flex h-8 w-full select-none items-center justify-between overflow-hidden rounded-xl border border-border bg-secondary/40 px-2 text-sm font-medium transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2",
-        disabled ? "cursor-not-allowed opacity-50" : "cursor-pointer hover:border-foreground/20 active:border-foreground/25",
+        disabled ? "cursor-not-allowed opacity-50" : "cursor-pointer hover:border-foreground/10 active:border-foreground/12",
         className
       )}
     >
@@ -50,7 +50,7 @@ export const CreativeToggle: React.FC<CreativeToggleProps> = ({
         <motion.span
           animate={{ x: checked ? 12 : 0 }}
           transition={{ type: "spring", stiffness: 500, damping: 30 }}
-          className="block h-3 w-3 rounded-full bg-white shadow-sm"
+          className="block h-3 w-3 rounded-full bg-white"
         />
       </div>
     </button>

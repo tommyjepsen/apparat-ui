@@ -74,7 +74,7 @@ export const CreativeColorPicker: React.FC<CreativeColorPickerProps> = ({
     <div
       className={cn(
         "group relative flex h-8 w-full select-none items-center justify-between overflow-hidden rounded-xl border border-border bg-secondary/40 px-2 text-sm font-medium transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2",
-        disabled ? "cursor-not-allowed opacity-50" : "hover:border-foreground/20 active:border-foreground/25",
+        disabled ? "cursor-not-allowed opacity-50" : "hover:border-foreground/10 active:border-foreground/12",
         className
       )}
     >
@@ -119,7 +119,7 @@ export const CreativeColorPicker: React.FC<CreativeColorPickerProps> = ({
           title="Open color picker"
         >
           <span
-            className="h-4 w-4 rounded-full border border-black/10 shadow-sm transition-transform duration-100 hover:scale-110 active:scale-95"
+            className="h-4 w-4 rounded-full border border-black/10 transition-transform duration-100 hover:scale-110 active:scale-95"
             style={{ backgroundColor: value }}
           />
 

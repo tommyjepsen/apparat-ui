@@ -1,5 +1,5 @@
 import { useState, useEffect } from "react"
-import { Code2, Moon, Sun, Download, Sparkles, RotateCcw, Copy } from "lucide-react"
+import { Code2, Moon, Sun, Download, Sparkles, Copy, AlignLeft, AlignCenter, AlignRight } from "lucide-react"
 import { CreativeSlider } from "@/components/tool-ui/creative-slider"
 import { Label } from "@/components/tool-ui/label"
 import { CreativeSelect } from "@/components/tool-ui/creative-select"
@@ -8,6 +8,7 @@ import { CreativeColorPicker } from "@/components/tool-ui/creative-color-picker"
 import { CreativeNumberInput } from "@/components/tool-ui/creative-number-input"
 import { CreativeSegmentedControl } from "@/components/tool-ui/creative-segmented-control"
 import { CreativeButton } from "@/components/tool-ui/creative-button"
+import { CreativeColorPopover } from "@/components/tool-ui/creative-color-popover"
 import { DotPattern } from "@/components/tool-ui/dot-pattern"
 import { CodeModal } from "@/components/code-modal"
 import { LayoutsPage } from "@/pages/layouts"
@@ -19,6 +20,7 @@ import creativeColorPickerRawCode from "@/components/tool-ui/creative-color-pick
 import creativeNumberInputRawCode from "@/components/tool-ui/creative-number-input.tsx?raw"
 import creativeSegmentedControlRawCode from "@/components/tool-ui/creative-segmented-control.tsx?raw"
 import creativeButtonRawCode from "@/components/tool-ui/creative-button.tsx?raw"
+import creativeColorPopoverRawCode from "@/components/tool-ui/creative-color-popover.tsx?raw"
 import dotPatternRawCode from "@/components/tool-ui/dot-pattern.tsx?raw"
 
 
@@ -30,6 +32,7 @@ export function App() {
   const [accentColor, setAccentColor] = useState("#EA580C")
   const [paddingVal, setPaddingVal] = useState(24)
   const [alignMode, setAlignMode] = useState("center")
+  const [popoverColor, setPopoverColor] = useState("#3B82F6")
   const [isDark, setIsDark] = useState<boolean>(() => {
     if (typeof window !== "undefined") {
       const stored = localStorage.getItem("theme")
@@ -111,7 +114,7 @@ export function App() {
         <main className="mx-auto max-w-4xl px-6 pb-16">
         <div className="grid grid-cols-1 gap-6 sm:grid-cols-2">
           {/* Card 1: Creative Slider */}
-          <div className="group relative flex aspect-square flex-col justify-between rounded-xl border border-border bg-card p-6 transition-all hover:border-foreground/20">
+          <div className="group relative flex aspect-square flex-col justify-between rounded-xl border border-border bg-card p-6 transition-all hover:border-foreground/10">
             <div className="flex items-center justify-between">
               <span className="text-sm tracking-tight text-muted-foreground">01 / slider</span>
               <button
@@ -142,7 +145,7 @@ export function App() {
           </div>
 
           {/* Card 2: Label */}
-          <div className="group relative flex aspect-square flex-col justify-between rounded-xl border border-border bg-card p-6 transition-all hover:border-foreground/20">
+          <div className="group relative flex aspect-square flex-col justify-between rounded-xl border border-border bg-card p-6 transition-all hover:border-foreground/10">
             <div className="flex items-center justify-between">
               <span className="text-sm tracking-tight text-muted-foreground">02 / label</span>
               <button
@@ -166,7 +169,7 @@ export function App() {
           </div>
 
           {/* Card 3: Creative Select */}
-          <div className="group relative flex aspect-square flex-col justify-between rounded-xl border border-border bg-card p-6 transition-all hover:border-foreground/20">
+          <div className="group relative flex aspect-square flex-col justify-between rounded-xl border border-border bg-card p-6 transition-all hover:border-foreground/10">
             <div className="flex items-center justify-between">
               <span className="text-sm tracking-tight text-muted-foreground">03 / select</span>
               <button
@@ -199,7 +202,7 @@ export function App() {
           </div>
 
           {/* Card 4: Creative Toggle */}
-          <div className="group relative flex aspect-square flex-col justify-between rounded-xl border border-border bg-card p-6 transition-all hover:border-foreground/20">
+          <div className="group relative flex aspect-square flex-col justify-between rounded-xl border border-border bg-card p-6 transition-all hover:border-foreground/10">
             <div className="flex items-center justify-between">
               <span className="text-sm tracking-tight text-muted-foreground">04 / toggle</span>
               <button
@@ -225,7 +228,7 @@ export function App() {
           </div>
 
           {/* Card 5: Creative Color Picker */}
-          <div className="group relative flex aspect-square flex-col justify-between rounded-xl border border-border bg-card p-6 transition-all hover:border-foreground/20">
+          <div className="group relative flex aspect-square flex-col justify-between rounded-xl border border-border bg-card p-6 transition-all hover:border-foreground/10">
             <div className="flex items-center justify-between">
               <span className="text-sm tracking-tight text-muted-foreground">05 / color</span>
               <button
@@ -251,7 +254,7 @@ export function App() {
           </div>
 
           {/* Card 6: Creative Number Input */}
-          <div className="group relative flex aspect-square flex-col justify-between rounded-xl border border-border bg-card p-6 transition-all hover:border-foreground/20">
+          <div className="group relative flex aspect-square flex-col justify-between rounded-xl border border-border bg-card p-6 transition-all hover:border-foreground/10">
             <div className="flex items-center justify-between">
               <span className="text-sm tracking-tight text-muted-foreground">06 / number</span>
               <button
@@ -281,7 +284,7 @@ export function App() {
           </div>
 
           {/* Card 7: Creative Segmented Control */}
-          <div className="group relative flex aspect-square flex-col justify-between rounded-xl border border-border bg-card p-6 transition-all hover:border-foreground/20">
+          <div className="group relative flex aspect-square flex-col justify-between rounded-xl border border-border bg-card p-6 transition-all hover:border-foreground/10">
             <div className="flex items-center justify-between">
               <span className="text-sm tracking-tight text-muted-foreground">07 / segmented</span>
               <button
@@ -295,8 +298,22 @@ export function App() {
             </div>
 
             {/* Center Component */}
-            <div className="w-full max-w-[240px] self-center">
+            <div className="flex w-full max-w-[240px] flex-col gap-3 self-center">
+              {/* Icons only with tooltips */}
               <CreativeSegmentedControl
+                layoutId="segmented-pill-icons"
+                value={alignMode}
+                onChange={setAlignMode}
+                options={[
+                  { value: "left", label: <AlignLeft aria-label="Align left" />, tooltip: "Left" },
+                  { value: "center", label: <AlignCenter aria-label="Align center" />, tooltip: "Center" },
+                  { value: "right", label: <AlignRight aria-label="Align right" />, tooltip: "Right" },
+                ]}
+              />
+
+              {/* Text / Label only */}
+              <CreativeSegmentedControl
+                layoutId="segmented-pill-text"
                 value={alignMode}
                 onChange={setAlignMode}
                 options={[
@@ -311,7 +328,7 @@ export function App() {
           </div>
 
           {/* Card 8: Creative Button */}
-          <div className="group relative flex aspect-square flex-col justify-between rounded-xl border border-border bg-card p-6 transition-all hover:border-foreground/20">
+          <div className="group relative flex aspect-square flex-col justify-between rounded-xl border border-border bg-card p-6 transition-all hover:border-foreground/10">
             <div className="flex items-center justify-between">
               <span className="text-sm tracking-tight text-muted-foreground">08 / button</span>
               <button
@@ -325,34 +342,26 @@ export function App() {
             </div>
 
             {/* Center Component */}
-            <div className="flex flex-col items-center gap-2 self-center">
-              <div className="flex items-center gap-2">
-                <CreativeButton variant="default" className="gap-1.5">
-                  <Download />
-                  <span>Export</span>
-                </CreativeButton>
-                <CreativeButton variant="accent" className="gap-1.5">
-                  <Sparkles />
-                  <span>Render</span>
-                </CreativeButton>
-              </div>
-              <div className="flex items-center gap-2">
-                <CreativeButton variant="secondary" className="gap-1.5">
-                  <RotateCcw />
-                  <span>Reset</span>
-                </CreativeButton>
-                <CreativeButton variant="outline" className="gap-1.5">
-                  <Copy />
-                  <span>Copy</span>
-                </CreativeButton>
-              </div>
+            <div className="flex items-center justify-center gap-1.5 self-center">
+              <CreativeButton variant="default" className="gap-1 px-2">
+                <Download />
+                <span>Export</span>
+              </CreativeButton>
+              <CreativeButton variant="accent" className="gap-1 px-2">
+                <Sparkles />
+                <span>Render</span>
+              </CreativeButton>
+              <CreativeButton variant="outline" className="gap-1 px-2">
+                <Copy />
+                <span>Copy</span>
+              </CreativeButton>
             </div>
 
             <div />
           </div>
 
           {/* Card 9: Dot Pattern */}
-          <div className="group relative flex aspect-square flex-col justify-between overflow-hidden rounded-xl border border-border bg-card p-6 transition-all hover:border-foreground/20">
+          <div className="group relative flex aspect-square flex-col justify-between overflow-hidden rounded-xl border border-border bg-card p-6 transition-all hover:border-foreground/10">
             <div className="relative z-10 flex items-center justify-between">
               <span className="text-sm tracking-tight text-muted-foreground">09 / dot pattern</span>
               <button
@@ -374,6 +383,34 @@ export function App() {
             </div>
 
             <div className="relative z-10" />
+          </div>
+
+          {/* Card 10: Color Popover */}
+          <div className="group relative flex aspect-square flex-col justify-between rounded-xl border border-border bg-card p-6 transition-all hover:border-foreground/10">
+            <div className="flex items-center justify-between">
+              <span className="text-sm tracking-tight text-muted-foreground">10 / popover</span>
+              <button
+                onClick={() =>
+                  openCode("creative-color-popover.tsx", creativeColorPopoverRawCode)
+                }
+                className="flex items-center gap-1 rounded-md border border-border bg-secondary/50 px-2 py-1 font-mono text-[11px] text-muted-foreground transition-all hover:bg-secondary hover:text-foreground active:scale-95"
+                title="View code"
+              >
+                <Code2 className="h-3 w-3" />
+                <span>code</span>
+              </button>
+            </div>
+
+            {/* Center Component */}
+            <div className="w-full max-w-[240px] self-center">
+              <CreativeColorPopover
+                label="Palette"
+                value={popoverColor}
+                onChange={setPopoverColor}
+              />
+            </div>
+
+            <div />
           </div>
         </div>
       </main>

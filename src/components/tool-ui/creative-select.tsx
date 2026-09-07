@@ -58,8 +58,8 @@ export const CreativeSelect: React.FC<CreativeSelectProps> = ({
         onClick={() => setIsOpen((prev) => !prev)}
         className={cn(
           "group relative flex h-8 w-full items-center justify-between overflow-hidden rounded-xl border border-border bg-secondary/40 px-2 text-sm font-medium transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2",
-          disabled ? "cursor-not-allowed opacity-50" : "cursor-pointer hover:border-foreground/20 active:border-foreground/25",
-          isOpen && "border-foreground/25"
+          disabled ? "cursor-not-allowed opacity-50" : "cursor-pointer hover:border-foreground/10 active:border-foreground/12",
+          isOpen && "border-foreground/15"
         )}
       >
         {/* Label on the left */}
@@ -85,7 +85,7 @@ export const CreativeSelect: React.FC<CreativeSelectProps> = ({
 
       {/* Dropdown Popup */}
       {isOpen && (
-        <div className="absolute left-0 right-0 top-[calc(100%+4px)] z-50 overflow-hidden rounded-xl border border-border bg-popover p-1 shadow-lg backdrop-blur">
+        <div className="absolute left-0 right-0 top-[calc(100%+4px)] z-50 overflow-hidden rounded-xl border border-border bg-popover p-1 backdrop-blur">
           {options.map((option) => {
             const isSelected = option.value === value
             return (

@@ -28,7 +28,7 @@ export const LayoutsPage: React.FC = () => {
   return (
     <div className="mx-auto w-full min-w-[80vw] max-w-7xl px-6 pb-20">
       {/* Container Card in 16:9 Aspect Ratio */}
-      <div className="aspect-video w-full overflow-hidden rounded-xl border border-border bg-card shadow-sm">
+      <div className="aspect-video w-full overflow-hidden rounded-xl border border-border bg-card">
         {/* Editor Mockup Shell */}
         <div className="flex h-full w-full flex-col md:flex-row">
           {/* Left Sidebar */}
@@ -163,13 +163,13 @@ export const LayoutsPage: React.FC = () => {
             <DotPattern size={20} radius={1.2} />
 
             <div
-              className={`relative z-10 w-full transition-all duration-150 flex items-center justify-center border border-border ${
+              className={`relative z-10 w-full transition-all duration-150 flex items-center justify-center border border-border rounded-xl ${
                 aspect === "16:9"
                   ? "aspect-video max-w-[420px]"
                   : aspect === "1:1"
                   ? "aspect-square max-w-[280px]"
                   : "aspect-[9/16] max-w-[200px]"
-              } rounded-xl ${hasShadow ? "shadow-2xl" : "shadow-none"}`}
+              }`}
               style={{
                 backgroundColor: canvasColor,
                 opacity: opacity / 100,

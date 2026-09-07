@@ -47,7 +47,7 @@ export const CodeModal: React.FC<CodeModalProps> = ({
       />
 
       {/* Modal Dialog */}
-      <div className="relative z-10 flex max-h-[85vh] w-full max-w-3xl flex-col rounded-xl border border-border bg-card shadow-2xl">
+      <div className="relative z-10 flex max-h-[85vh] w-full max-w-3xl flex-col rounded-xl border border-border bg-card">
         {/* Header */}
         <div className="flex items-center justify-between border-b border-border px-5 py-3.5">
           <div className="flex items-center gap-2">

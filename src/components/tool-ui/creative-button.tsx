@@ -28,13 +28,13 @@ export const CreativeButton = React.forwardRef<
 
     const variants = {
       default:
-        "rounded-xl border border-border bg-secondary/40 text-foreground hover:border-foreground/20 hover:bg-secondary/70 active:border-foreground/25",
+        "rounded-xl border border-border bg-secondary/40 text-foreground hover:border-foreground/10 hover:bg-secondary/70 active:border-foreground/12",
       secondary:
         "rounded-xl border border-border bg-muted/60 text-muted-foreground hover:bg-muted hover:text-foreground",
       accent:
-        "rounded-xl border border-accent bg-accent text-accent-foreground shadow-sm hover:opacity-90 active:opacity-100",
+        "rounded-xl border border-accent bg-accent text-accent-foreground hover:opacity-90 active:opacity-100",
       outline:
-        "rounded-xl border border-border bg-transparent text-foreground hover:border-foreground/20 hover:bg-secondary/40",
+        "rounded-xl border border-border bg-transparent text-foreground hover:border-foreground/10 hover:bg-secondary/40",
       ghost:
         "rounded-xl border border-transparent bg-transparent text-muted-foreground hover:bg-secondary/40 hover:text-foreground",
     }

@@ -153,7 +153,7 @@ export const CreativeSlider: React.FC<CreativeSliderProps> = ({
       onPointerLeave={handlePointerLeave}
       className={cn(
         "group relative flex h-8 w-full select-none items-center overflow-hidden rounded-xl border border-border bg-secondary/40 px-2 text-sm font-medium transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2",
-        disabled ? "cursor-not-allowed opacity-50" : "cursor-ew-resize hover:border-foreground/20 active:border-foreground/25",
+        disabled ? "cursor-not-allowed opacity-50" : "cursor-ew-resize hover:border-foreground/10 active:border-foreground/12",
         className
       )}
     >
@@ -163,10 +163,10 @@ export const CreativeSlider: React.FC<CreativeSliderProps> = ({
         style={{ width: `${percentage}%` }}
       />
 
-      {/* Hover Step Dots */}
+      {/* Hover Step Ticks (sticking up 2px from the bottom) */}
       <div
         className={cn(
-          "pointer-events-none absolute inset-0 flex items-center transition-opacity duration-150",
+          "pointer-events-none absolute inset-x-0 bottom-0 h-[2px] transition-opacity duration-150",
           isHovered ? "opacity-100" : "opacity-0"
         )}
       >
@@ -177,7 +177,7 @@ export const CreativeSlider: React.FC<CreativeSliderProps> = ({
             <span
               key={`dot-${dot.val}`}
               className={cn(
-                "absolute h-[2px] w-[2px] -translate-x-1/2 rounded-full transition-colors duration-100",
+                "absolute bottom-0 h-[2px] w-[1px] -translate-x-1/2 transition-colors duration-100",
                 isHover
                   ? "bg-foreground/50"
                   : isCurrent
