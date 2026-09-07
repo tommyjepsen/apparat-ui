@@ -8,6 +8,7 @@ import {
   CreativeSegmentedControl,
 } from "../molecules"
 import { CreativeButton, DotPattern, Label } from "../atoms"
+import { FloatingToolbar } from "../organisms"
 import { RotateCcw, Download } from "lucide-react"
 
 export const CanvasEditor: React.FC = () => {
@@ -178,6 +179,11 @@ export const CanvasEditor: React.FC = () => {
               <span className="font-mono text-[8px] uppercase text-muted-foreground select-none tracking-widest">
                 {aspect} Canvas
               </span>
+            </div>
+
+            {/* Floating Organism: Figma Tool Bar pinned to bottom-center */}
+            <div className="absolute bottom-5 left-1/2 z-20 -translate-x-1/2">
+              <FloatingToolbar />
             </div>
           </section>
         </div>

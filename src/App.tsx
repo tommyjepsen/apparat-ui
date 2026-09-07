@@ -15,6 +15,7 @@ import {
   CreativeTextareaPopover,
   CreativeSegmentedControl,
   PropertyInspector,
+  FloatingToolbar,
   CanvasEditor,
 } from "@/components/tool-ui"
 import { CodeModal } from "@/components/code-modal"
@@ -34,6 +35,7 @@ import creativeTextInputRawCode from "@/components/tool-ui/molecules/creative-te
 import creativeTextareaPopoverRawCode from "@/components/tool-ui/molecules/creative-textarea-popover.tsx?raw"
 import creativeSegmentedControlRawCode from "@/components/tool-ui/molecules/creative-segmented-control.tsx?raw"
 import propertyInspectorRawCode from "@/components/tool-ui/organisms/property-inspector.tsx?raw"
+import floatingToolbarRawCode from "@/components/tool-ui/organisms/floating-toolbar.tsx?raw"
 import canvasEditorRawCode from "@/components/tool-ui/templates/canvas-editor.tsx?raw"
 
 export function App() {
@@ -401,11 +403,32 @@ export function App() {
         </main>
       ) : activeTab === "organisms" ? (
         <main className="mx-auto max-w-4xl px-6 pb-16">
-          <div className="flex flex-col items-center justify-center gap-6 py-6">
-            <div className="flex w-full max-w-[340px] flex-col gap-4 rounded-xl bg-card p-6">
+          <div className="flex flex-col gap-6 py-6">
+            {/* Organism 01: Floating Toolbar */}
+            <div className="flex flex-col gap-4 rounded-xl bg-card p-6">
               <div className="flex items-center justify-between">
                 <span className="font-mono text-[10px] uppercase tracking-wider text-muted-foreground">
-                  01 / PROPERTY INSPECTOR
+                  01 / FLOATING TOOLBAR
+                </span>
+                <button
+                  onClick={() => openCode("floating-toolbar.tsx", floatingToolbarRawCode)}
+                  className="flex items-center gap-1 rounded-md border border-border bg-secondary/50 px-2 py-1 font-mono text-[11px] text-muted-foreground transition-all hover:bg-secondary hover:text-foreground active:scale-95"
+                  title="View code"
+                >
+                  <Code2 className="h-3 w-3" />
+                  <span>code</span>
+                </button>
+              </div>
+              <div className="flex min-h-[120px] items-center justify-center rounded-lg border border-border/40 bg-background/50 p-6">
+                <FloatingToolbar />
+              </div>
+            </div>
+
+            {/* Organism 02: Property Inspector */}
+            <div className="flex flex-col gap-4 rounded-xl bg-card p-6">
+              <div className="flex items-center justify-between">
+                <span className="font-mono text-[10px] uppercase tracking-wider text-muted-foreground">
+                  02 / PROPERTY INSPECTOR
                 </span>
                 <button
                   onClick={() => openCode("property-inspector.tsx", propertyInspectorRawCode)}
@@ -416,7 +439,7 @@ export function App() {
                   <span>code</span>
                 </button>
               </div>
-              <div className="flex justify-center">
+              <div className="flex justify-center p-4">
                 <PropertyInspector />
               </div>
             </div>
