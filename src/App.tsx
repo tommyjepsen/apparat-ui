@@ -131,17 +131,17 @@ export function App() {
       code: slidingNumberRawCode,
       render: (
         <div className="flex flex-col items-center justify-center gap-3 self-center">
-          <div className="flex items-center gap-3 rounded-lg border border-border/60 bg-secondary/30 px-3 py-1.5">
+          <div className="flex items-center gap-2.5 rounded-lg border border-border/60 bg-secondary/30 px-2.5 py-1">
             <button
               onClick={() => setSlidingCount((c) => Math.max(0, c - 1))}
-              className="font-mono text-xs text-muted-foreground transition-colors hover:text-foreground active:scale-95"
+              className="font-mono text-[10px] text-muted-foreground transition-colors hover:text-foreground active:scale-95"
             >
               -
             </button>
-            <SlidingNumber value={slidingCount} unit="px" className="text-sm font-semibold" />
+            <SlidingNumber value={slidingCount} unit="px" className="text-[10px] font-normal" />
             <button
               onClick={() => setSlidingCount((c) => c + 1)}
-              className="font-mono text-xs text-muted-foreground transition-colors hover:text-foreground active:scale-95"
+              className="font-mono text-[10px] text-muted-foreground transition-colors hover:text-foreground active:scale-95"
             >
               +
             </button>
@@ -354,8 +354,8 @@ export function App() {
         }`}
       >
         <div className="flex items-center gap-6">
-          <span className="font-mono text-sm font-semibold tracking-tight">tool-ui</span>
-          <nav className="flex items-center gap-3 font-mono text-xs">
+          <span className="font-mono text-[10px] font-semibold tracking-tight">tool-ui</span>
+          <nav className="flex items-center gap-3 font-mono text-[10px]">
             {(["all", "atoms", "molecules", "organisms", "templates"] as const).map((tab) => (
               <button
                 key={tab}
