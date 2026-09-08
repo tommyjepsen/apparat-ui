@@ -990,7 +990,7 @@ export function App() {
               Build creative tools faster
             </h1>
             <p className="font-mono text-[11px] leading-relaxed text-muted-foreground">
-              A Dieter Rams-inspired tactile UI component library designed for creative software, editors, and canvas tools.
+              A tactile UI component library designed for creative software, editors, and canvas tools.
 
               <br /><br />Created by Tommy Jepsen -{" "}
               <a

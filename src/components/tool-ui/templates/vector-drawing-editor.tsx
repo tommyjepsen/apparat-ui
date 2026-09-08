@@ -12,7 +12,7 @@ import {
 } from "../molecules"
 import { CreativeButton, DotPattern, Label } from "../atoms"
 import { FloatingToolbar } from "../organisms/floating-toolbar"
-import { LayerTree } from "../organisms/layer-tree"
+import { LayerTree, type LayerItem } from "../organisms/layer-tree"
 import {
   Square,
   Circle,
@@ -21,6 +21,50 @@ import {
   Download,
   RotateCcw,
 } from "lucide-react"
+
+const VECTOR_LAYERS: LayerItem[] = [
+  {
+    id: "artboard-poster",
+    name: "Poster Artboard (3:4)",
+    type: "frame",
+    visible: true,
+    locked: false,
+    children: [
+      { id: "layer-accent-dot", name: "Accent Dot (Active)", type: "shape", visible: true, locked: false },
+      {
+        id: "group-dots",
+        name: "Vector Dot Matrix",
+        type: "frame",
+        visible: true,
+        locked: false,
+        children: [
+          { id: "dot-row-1", name: "Dot 1.1 — Row 1", type: "shape", visible: true, locked: false },
+          { id: "dot-row-2-1", name: "Dot 2.1 — Row 2", type: "shape", visible: true, locked: false },
+          { id: "dot-row-2-2", name: "Dot 2.2 — Row 2", type: "shape", visible: true, locked: false },
+          { id: "dot-row-3-1", name: "Dot 3.1 — Row 3", type: "shape", visible: true, locked: false },
+          { id: "dot-row-3-2", name: "Dot 3.2 — Row 3", type: "shape", visible: true, locked: false },
+          { id: "dot-row-3-3", name: "Dot 3.3 — Row 3", type: "shape", visible: true, locked: false },
+          { id: "dot-row-3-4", name: "Dot 3.4 — Row 3", type: "shape", visible: true, locked: false },
+          { id: "dot-row-4", name: "Dot 4.1 — Row 4", type: "shape", visible: true, locked: false },
+          { id: "dot-row-5-1", name: "Dot 5.1 — Row 5", type: "shape", visible: true, locked: false },
+          { id: "dot-row-6", name: "Dot 6.1 — Row 6", type: "shape", visible: true, locked: false },
+        ],
+      },
+      { id: "layer-poster-plate", name: "Artboard Plate", type: "shape", visible: true, locked: true },
+    ],
+  },
+  {
+    id: "group-guides",
+    name: "Guides & Alignment",
+    type: "frame",
+    visible: true,
+    locked: true,
+    children: [
+      { id: "guide-center-axis", name: "Center Axis (X/Y)", type: "shape", visible: true, locked: true },
+      { id: "guide-margins", name: "Safe Margin 24px", type: "shape", visible: false, locked: true },
+    ],
+  },
+]
 
 export const VectorDrawingEditor: React.FC = () => {
   const [activeTool, setActiveTool] = useState<string>("pen")
@@ -64,8 +108,13 @@ export const VectorDrawingEditor: React.FC = () => {
             </div>
 
             {/* Embedded Layer Tree */}
-            <div className="flex-1 flex flex-col overflow-hidden">
-              <LayerTree className="w-full max-w-none border-none bg-transparent p-0 shadow-none" />
+            <div className="flex-1 flex flex-col min-h-0">
+              <LayerTree
+                initialLayers={VECTOR_LAYERS}
+                initialSelectedId="layer-accent-dot"
+                badge="VECTORS"
+                className="w-full max-w-none border-none bg-transparent p-0 shadow-none"
+              />
             </div>
           </aside>
 

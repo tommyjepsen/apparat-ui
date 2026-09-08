@@ -197,13 +197,13 @@ export const CreativeAngleKnob: React.FC<CreativeAngleKnobProps> = ({
           onPointerMove={handleDialPointerMove}
           onPointerUp={handleDialPointerUp}
           onPointerCancel={handleDialPointerUp}
-          className="relative h-5 w-5 cursor-grab touch-none items-center justify-center rounded-full border border-border/80 bg-background transition-transform active:cursor-grabbing active:scale-95"
+          className="relative h-5 w-5 cursor-grab touch-none items-center justify-center rounded-full border border-border/80 bg-background dark:bg-white dark:border-white transition-transform active:cursor-grabbing active:scale-95"
           title="Drag dial to rotate (Hold Shift to snap 45°)"
         >
           {/* Subtle needle indicator */}
           <svg viewBox="0 0 20 20" className="absolute inset-0 h-full w-full pointer-events-none">
             {/* Center origin */}
-            <circle cx="10" cy="10" r="1.2" className="fill-muted-foreground/40" />
+            <circle cx="10" cy="10" r="1.2" className="fill-muted-foreground/40 dark:fill-neutral-400" />
 
             {/* Indicator Needle */}
             <line

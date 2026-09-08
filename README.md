@@ -1,6 +1,6 @@
 # apparat/ui
 
-> Tactile UI components designed for building high-precision creative tools, editors, and canvas apps. Inspired by Dieter Rams' design principles.
+> Tactile UI components designed for building high-precision creative tools, editors, and canvas apps.
 
 An open-source UI component library designed specifically for modern creative software, graphic tools, node graphs, motion editors, and canvas workspaces.
 
@@ -12,7 +12,7 @@ Built with **React**, **TypeScript**, **Tailwind CSS**, and **Framer Motion**. I
 
 ## Design Principles
 
-- **Dieter Rams Inspiration**: Honest, functional, unobtrusive design with minimal clutter, high contrast tactile controls, and subtle purposeful accent indicators.
+- **Tactile & Functional**: Honest, functional, unobtrusive design with minimal clutter, high contrast tactile controls, and subtle purposeful accent indicators.
 - **Precision Micro-Typography**: Monospace labels and metadata (`Space Mono`), compact standard `32px` (`h-8`) control heights, and `12px` icon metrics with fine `1px` stroke weights.
 - **Fluid Micro-Interactions**: Directional sliding digit counters, scrub-to-drag gestures, interactive cubic-bezier curve handles, and spring layout transitions.
 - **Zero Heavy Shadows**: Clean borderless or subtle-border cards with refined contrast between light and dark modes.
@@ -68,7 +68,7 @@ Complex modular tool panels and control bars:
 Full-page composite editor experiences:
 - **`CanvasEditor`**: Complete responsive canvas studio layout combining the sidebar inspector, dot pattern grid, floating dock, and transformable canvas viewport.
 - **`MotionVideoEditor`**: 16:9 motion design environment with curve physics sidebar, video preview viewport, render settings, and bottom keyframe timeline.
-- **`VectorDrawingEditor`**: Vector artboard editor featuring a Dieter Rams-inspired dot composition, path styling inspector, layer tree, and floating pen dock.
+- **`VectorDrawingEditor`**: Vector artboard editor featuring a geometric dot composition, path styling inspector, layer tree, and floating pen dock.
 - **`WorkflowNodeBuilder`**: Node-based creative pipeline editor connecting procedural noise generators into image shader nodes with live parameter controls.
 
 ---

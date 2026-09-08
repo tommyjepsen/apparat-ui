@@ -48,9 +48,21 @@ const INITIAL_LAYERS: LayerItem[] = [
   },
 ]
 
-export const LayerTree: React.FC<{ className?: string }> = ({ className }) => {
-  const [layers, setLayers] = useState<LayerItem[]>(INITIAL_LAYERS)
-  const [selectedId, setSelectedId] = useState<string>("layer-title")
+export interface LayerTreeProps {
+  className?: string
+  initialLayers?: LayerItem[]
+  initialSelectedId?: string
+  badge?: string
+}
+
+export const LayerTree: React.FC<LayerTreeProps> = ({
+  className,
+  initialLayers,
+  initialSelectedId = "layer-title",
+  badge = "BLOCK",
+}) => {
+  const [layers, setLayers] = useState<LayerItem[]>(initialLayers ?? INITIAL_LAYERS)
+  const [selectedId, setSelectedId] = useState<string>(initialSelectedId)
   const [collapsed, setCollapsed] = useState<Record<string, boolean>>({})
 
   const toggleCollapse = (id: string, e: React.MouseEvent) => {
@@ -163,7 +175,7 @@ export const LayerTree: React.FC<{ className?: string }> = ({ className }) => {
         <span className="font-mono text-[9px] font-semibold uppercase tracking-wider text-foreground">
           Layers
         </span>
-        <span className="font-mono text-[8px] text-muted-foreground">ORGANISM</span>
+        <span className="font-mono text-[8px] text-muted-foreground">{badge}</span>
       </div>
 
       <div className="flex flex-col gap-0.5">
