@@ -124,7 +124,7 @@ export const ExportPresetsDialog: React.FC<{ className?: string }> = ({ classNam
         <CreativeButton
           variant="accent"
           onClick={handleExport}
-          className="gap-1.5 px-3 py-1 text-[10px]"
+          className="gap-1.5"
         >
           {done ? (
             <>
