@@ -6,7 +6,7 @@ An open-source UI component library designed specifically for modern creative so
 
 Built with **React**, **TypeScript**, **Tailwind CSS**, and **Framer Motion**. It emphasizes tactile micro-interactions, scrubbable numeric inputs, directional spring physics, and an ultra-clean monospace aesthetic using standard theme tokens.
 
-![apparat/ui Example](https://raw.githubusercontent.com/tommyjepsen/creative-tool-ui/refs/heads/main/public/creative-tool-ui-example.png)
+![apparat/ui Example](https://raw.githubusercontent.com/tommyjepsen/apparat-ui/refs/heads/main/public/creative-tool-ui-example.png)
 
 ---
 
@@ -136,8 +136,8 @@ src/components/tool-ui/
 Clone the repository and install dependencies:
 
 ```bash
-git clone https://github.com/tommyjepsen/creative-tool-ui.git
-cd creative-tool-ui
+git clone https://github.com/tommyjepsen/apparat-ui.git
+cd apparat-ui
 npm install
 ```
 

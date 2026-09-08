@@ -678,7 +678,7 @@ export function App() {
           {/* GitHub */}
           <div className="group relative flex items-center justify-center">
             <a
-              href="https://github.com/tommyjepsen/creative-tool-ui"
+              href="https://github.com/tommyjepsen/apparat-ui"
               target="_blank"
               rel="noreferrer"
               className="flex h-8 w-8 items-center justify-center rounded-md text-muted-foreground transition-colors hover:bg-muted hover:text-foreground"
