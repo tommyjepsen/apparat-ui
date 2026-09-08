@@ -1,4 +1,4 @@
-# Creative Tool UI
+# apparat/ui
 
 > Tactile UI components designed for building high-precision creative tools, editors, and canvas apps. Inspired by Dieter Rams' design principles.
 
@@ -6,7 +6,7 @@ An open-source UI component library designed specifically for modern creative so
 
 Built with **React**, **TypeScript**, **Tailwind CSS**, and **Framer Motion**. It emphasizes tactile micro-interactions, scrubbable numeric inputs, directional spring physics, and an ultra-clean monospace aesthetic using standard theme tokens.
 
-![Creative Tool UI Example](https://raw.githubusercontent.com/tommyjepsen/creative-tool-ui/refs/heads/main/public/creative-tool-ui-example.png)
+![apparat/ui Example](https://raw.githubusercontent.com/tommyjepsen/creative-tool-ui/refs/heads/main/public/creative-tool-ui-example.png)
 
 ---
 

@@ -609,7 +609,7 @@ export function App() {
           }`}
       >
         <div className="flex flex-wrap items-center gap-4 sm:gap-8">
-          <span className="font-mono text-[10px] font-semibold tracking-tight">creative tool ui</span>
+          <span className="font-mono text-[10px] font-semibold tracking-tight">apparat/ui</span>
           <nav className="flex items-center gap-4 sm:gap-5 overflow-x-auto font-mono text-[10px] [scrollbar-width:none] [-ms-overflow-style:none] [&::-webkit-scrollbar]:hidden">
             {(["home", "atoms", "molecules", "organisms", "templates"] as const).map((tab) => (
               <button
@@ -700,7 +700,7 @@ export function App() {
               </svg>
             </a>
             <div className="pointer-events-none absolute top-full mt-1.5 whitespace-nowrap rounded-md border border-border/60 bg-popover px-1.5 py-0.5 font-mono text-[8px] uppercase tracking-wider text-popover-foreground opacity-0 transition-opacity duration-150 group-hover:opacity-100 z-50">
-              /creative-tool-ui
+              /apparat-ui
             </div>
           </div>
 
