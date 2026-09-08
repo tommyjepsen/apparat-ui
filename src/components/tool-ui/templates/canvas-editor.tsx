@@ -6,6 +6,7 @@ import {
   CreativeColorPicker,
   CreativeNumberInput,
   CreativeSegmentedControl,
+  CreativeAngleKnob,
 } from "../molecules"
 import { CreativeButton, DotPattern, Label } from "../atoms"
 import { FloatingToolbar } from "../organisms"
@@ -24,7 +25,7 @@ export const CanvasEditor: React.FC = () => {
   const [canvasColor, setCanvasColor] = useState<string>("#FFFFFF")
 
   return (
-    <div className="mx-auto w-full min-w-[760px] max-w-[1920px] px-2 sm:px-6 pb-20">
+    <div className="w-full min-w-[760px]">
       {/* Container Card in 16:9 Aspect Ratio */}
       <div className="aspect-video w-full overflow-hidden rounded-xl border border-border bg-card">
         {/* Editor Mockup Shell */}
@@ -73,14 +74,10 @@ export const CanvasEditor: React.FC = () => {
                   unit="%"
                 />
 
-                <CreativeSlider
+                <CreativeAngleKnob
                   label="Rotation"
                   value={rotation}
                   onChange={setRotation}
-                  min={-180}
-                  max={180}
-                  step={1}
-                  unit="°"
                 />
               </div>
             </div>

@@ -30,7 +30,7 @@ export const MotionVideoEditor: React.FC = () => {
   const [stiffnessVal, setStiffnessVal] = useState<number>(180)
 
   return (
-    <div className="mx-auto w-full min-w-[760px] max-w-[1920px] px-2 sm:px-6 pb-20">
+    <div className="w-full min-w-[760px]">
       {/* 16:9 Aspect Video Editor Workspace Shell */}
       <div className="aspect-video w-full overflow-hidden rounded-xl border border-border bg-card flex flex-col">
         {/* Main Content: Left Sidebar, Canvas Center, Right Sidebar */}

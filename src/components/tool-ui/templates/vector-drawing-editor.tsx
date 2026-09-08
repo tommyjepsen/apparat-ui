@@ -35,7 +35,7 @@ export const VectorDrawingEditor: React.FC = () => {
   const [padding, setPadding] = useState({ top: 8, right: 8, bottom: 8, left: 8 })
 
   return (
-    <div className="mx-auto w-full min-w-[760px] max-w-[1920px] px-2 sm:px-6 pb-20">
+    <div className="w-full min-w-[760px]">
       {/* 16:9 Aspect Ratio Vector Drawing Tool Shell */}
       <div className="aspect-video w-full overflow-hidden rounded-xl border border-border bg-card flex flex-col">
         <div className="flex flex-1 overflow-hidden">

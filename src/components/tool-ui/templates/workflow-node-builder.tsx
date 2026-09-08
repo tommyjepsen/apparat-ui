@@ -35,7 +35,7 @@ export const WorkflowNodeBuilder: React.FC = () => {
   const [zoomLevel, setZoomLevel] = useState<number>(100)
 
   return (
-    <div className="mx-auto w-full min-w-[760px] max-w-[1920px] px-2 sm:px-6 pb-20">
+    <div className="w-full min-w-[760px]">
       {/* 16:9 Workflow Canvas Shell */}
       <div className="aspect-video w-full overflow-hidden rounded-xl border border-border bg-card flex flex-col select-none">
         {/* Top Header Bar */}
