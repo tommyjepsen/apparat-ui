@@ -20,10 +20,10 @@ Built with **React**, **TypeScript**, **Tailwind CSS**, and **Framer Motion**. I
 
 ---
 
-## Component Catalog
+## Catalog
 
-### 1. Atoms (7)
-Foundational visual and interactive primitives:
+### 1. Components (28)
+Foundational controls and tactile micro-interactive tools:
 - **`Label`**: Monospace uppercase property and section labels with subtle tracking.
 - **`CreativeButton`**: Micro-button with `default`, `secondary`, `accent`, `outline`, and `ghost` variants plus icon support.
 - **`SlidingNumber`**: Spring-powered directional digit roller (numbers slide up/down depending on increment or decrement).
@@ -31,9 +31,6 @@ Foundational visual and interactive primitives:
 - **`StatusBadge`**: Pill badge indicating engine, rendering, or sync state with integrated status dot indicator.
 - **`StatusDot`**: Pulsing multi-variant activity dot (`online`, `rendering`, `accent`, `error`, `draft`).
 - **`MicroKbd`**: Compact keyboard shortcut tag for modifier keys and tool shortcuts (`⌘`, `Shift`, `P`).
-
-### 2. Molecules (21)
-Micro-interactive tool controls built from atoms:
 - **`CreativeSlider`**: Continuous scrub slider with bottom-pinned ruler tick lines, scrub feedback, and sliding digit counter.
 - **`CreativeNumberInput`**: Horizontal click-and-drag scrubber with inline transparent text editing fallback and optional units (`px`, `%`, `ms`, `°`).
 - **`CreativeSelect`**: Compact dropdown selector with active indicators and built-in label container enclosure.
@@ -56,8 +53,8 @@ Micro-interactive tool controls built from atoms:
 - **`CreativeAudioWaveform`**: Audio track amplitude waveform preview with interactive scrub playhead.
 - **`CreativeNodeItem`**: Graph node component with input/output pin ports, header badges, and embedded parameter controls.
 
-### 3. Organisms (8)
-Complex tool panels and control bars composed of molecules:
+### 2. Blocks (8)
+Complex modular tool panels and control bars:
 - **`PropertyInspector`**: Inspector panel organizing identity, transform coordinates, align controls, appearance styling, and actions.
 - **`FloatingToolbar`**: Figma-style floating canvas dock with creation tools (`Cursor`, `Rectangle`, `Pen`, `Text`, `Hand`) and layout view stage switcher (`Split`, `Columns`, `Grid`).
 - **`MotionSidebar`**: Physics engine sidebar for configuring spring dynamics (`Stiffness`, `Damping`, `Mass`), bezier curves, duration/delay timing, and triggers.
@@ -67,7 +64,7 @@ Complex tool panels and control bars composed of molecules:
 - **`ShaderNodeGraph`**: Centered shader node interface with straight-line wire connectors, interactive math formulas, and resting pin terminals.
 - **`ExportPresetsDialog`**: Modal dialog for asset export configurations (format presets, scale factors, color space, and metadata toggles).
 
-### 4. Templates (4)
+### 3. Templates (4)
 Full-page composite editor experiences:
 - **`CanvasEditor`**: Complete responsive canvas studio layout combining the sidebar inspector, dot pattern grid, floating dock, and transformable canvas viewport.
 - **`MotionVideoEditor`**: 16:9 motion design environment with curve physics sidebar, video preview viewport, render settings, and bottom keyframe timeline.

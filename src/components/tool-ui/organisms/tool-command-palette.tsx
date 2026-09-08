@@ -14,7 +14,8 @@ export interface CommandAction {
 export const ToolCommandPalette: React.FC<{
   onClose?: () => void
   onToggleTheme?: () => void
-}> = ({ onClose, onToggleTheme }) => {
+  autoFocus?: boolean
+}> = ({ onClose, onToggleTheme, autoFocus = false }) => {
   const [query, setQuery] = useState("")
   const [selectedIndex, setSelectedIndex] = useState(0)
 
@@ -46,7 +47,7 @@ export const ToolCommandPalette: React.FC<{
           onChange={(e) => setQuery(e.target.value)}
           placeholder="Search commands, actions, or tools..."
           className="flex-1 bg-transparent font-mono text-[10px] text-foreground placeholder:text-muted-foreground focus:outline-none"
-          autoFocus
+          autoFocus={autoFocus}
         />
         <kbd className="rounded-md border border-border/80 bg-secondary/50 px-1.5 py-0.5 font-mono text-[8px] text-muted-foreground">
           ESC

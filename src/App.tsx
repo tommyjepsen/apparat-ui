@@ -88,7 +88,7 @@ import workflowNodeBuilderRawCode from "@/components/tool-ui/templates/workflow-
 
 export function App() {
   const [activeTab, setActiveTab] = useState<
-    "home" | "atoms" | "molecules" | "organisms" | "templates"
+    "home" | "components" | "blocks" | "templates"
   >("home")
   const [blendMode, setBlendMode] = useState("normal")
   const [gridEnabled, setGridEnabled] = useState(true)
@@ -118,6 +118,10 @@ export function App() {
       localStorage.setItem("theme", "light")
     }
   }, [isDark])
+
+  useEffect(() => {
+    window.scrollTo({ top: 0, behavior: "instant" })
+  }, [activeTab])
 
   const [sliderVal, setSliderVal] = useState<number>(5)
   const [modalState, setModalState] = useState<{
@@ -277,7 +281,7 @@ export function App() {
   const moleculeCards = [
     {
       id: "slider",
-      num: "01",
+      num: "08",
       title: "slider",
       file: "creative-slider.tsx",
       code: creativeSliderRawCode,
@@ -296,7 +300,7 @@ export function App() {
     },
     {
       id: "select",
-      num: "02",
+      num: "09",
       title: "select",
       file: "creative-select.tsx",
       code: creativeSelectRawCode,
@@ -319,7 +323,7 @@ export function App() {
     },
     {
       id: "toggle",
-      num: "03",
+      num: "10",
       title: "toggle",
       file: "creative-toggle.tsx",
       code: creativeToggleRawCode,
@@ -335,7 +339,7 @@ export function App() {
     },
     {
       id: "color-picker",
-      num: "04",
+      num: "11",
       title: "color picker",
       file: "creative-color-picker.tsx",
       code: creativeColorPickerRawCode,
@@ -351,7 +355,7 @@ export function App() {
     },
     {
       id: "number-input",
-      num: "05",
+      num: "12",
       title: "number",
       file: "creative-number-input.tsx",
       code: creativeNumberInputRawCode,
@@ -371,7 +375,7 @@ export function App() {
     },
     {
       id: "segmented",
-      num: "06",
+      num: "13",
       title: "segmented",
       file: "creative-segmented-control.tsx",
       code: creativeSegmentedControlRawCode,
@@ -402,7 +406,7 @@ export function App() {
     },
     {
       id: "color-popover",
-      num: "07",
+      num: "14",
       title: "color popover",
       file: "creative-color-popover.tsx",
       code: creativeColorPopoverRawCode,
@@ -418,7 +422,7 @@ export function App() {
     },
     {
       id: "text-input",
-      num: "08",
+      num: "15",
       title: "input",
       file: "creative-text-input.tsx",
       code: creativeTextInputRawCode,
@@ -435,7 +439,7 @@ export function App() {
     },
     {
       id: "textarea-popover",
-      num: "09",
+      num: "16",
       title: "textarea",
       file: "creative-textarea-popover.tsx",
       code: creativeTextareaPopoverRawCode,
@@ -452,7 +456,7 @@ export function App() {
     },
     {
       id: "easing-curve",
-      num: "10",
+      num: "17",
       title: "easing curve",
       file: "creative-easing-curve.tsx",
       code: creativeEasingCurveRawCode,
@@ -464,7 +468,7 @@ export function App() {
     },
     {
       id: "angle-knob",
-      num: "11",
+      num: "18",
       title: "angle knob",
       file: "creative-angle-knob.tsx",
       code: creativeAngleKnobRawCode,
@@ -476,7 +480,7 @@ export function App() {
     },
     {
       id: "range-slider",
-      num: "12",
+      num: "19",
       title: "range slider",
       file: "creative-range-slider.tsx",
       code: creativeRangeSliderRawCode,
@@ -488,7 +492,7 @@ export function App() {
     },
     {
       id: "box-model",
-      num: "13",
+      num: "20",
       title: "box model",
       file: "creative-box-model.tsx",
       code: creativeBoxModelRawCode,
@@ -500,7 +504,7 @@ export function App() {
     },
     {
       id: "gradient-slider",
-      num: "14",
+      num: "21",
       title: "gradient ramp",
       file: "creative-gradient-slider.tsx",
       code: creativeGradientSliderRawCode,
@@ -512,7 +516,7 @@ export function App() {
     },
     {
       id: "alignment-matrix",
-      num: "15",
+      num: "22",
       title: "anchor matrix",
       file: "creative-alignment-matrix.tsx",
       code: creativeAlignmentMatrixRawCode,
@@ -524,7 +528,7 @@ export function App() {
     },
     {
       id: "spring-physics",
-      num: "16",
+      num: "23",
       title: "spring physics",
       file: "creative-spring-physics.tsx",
       code: creativeSpringPhysicsRawCode,
@@ -536,7 +540,7 @@ export function App() {
     },
     {
       id: "histogram-levels",
-      num: "17",
+      num: "24",
       title: "histogram levels",
       file: "creative-histogram-levels.tsx",
       code: creativeHistogramLevelsRawCode,
@@ -548,7 +552,7 @@ export function App() {
     },
     {
       id: "font-picker",
-      num: "18",
+      num: "25",
       title: "font picker",
       file: "creative-font-picker.tsx",
       code: creativeFontPickerRawCode,
@@ -560,7 +564,7 @@ export function App() {
     },
     {
       id: "mask-control",
-      num: "19",
+      num: "26",
       title: "mask mode",
       file: "creative-mask-control.tsx",
       code: creativeMaskControlRawCode,
@@ -572,7 +576,7 @@ export function App() {
     },
     {
       id: "audio-waveform",
-      num: "20",
+      num: "27",
       title: "audio waveform",
       file: "creative-audio-waveform.tsx",
       code: creativeAudioWaveformRawCode,
@@ -584,7 +588,7 @@ export function App() {
     },
     {
       id: "node-item",
-      num: "21",
+      num: "28",
       title: "node item",
       file: "creative-node-item.tsx",
       code: creativeNodeItemRawCode,
@@ -601,6 +605,8 @@ export function App() {
     },
   ]
 
+  const componentCards = [...atomCards, ...moleculeCards]
+
   return (
     <div className="min-h-screen bg-background text-foreground transition-colors duration-150">
       {/* Minimal Header */}
@@ -611,7 +617,7 @@ export function App() {
         <div className="flex flex-wrap items-center gap-4 sm:gap-8">
           <span className="font-mono text-[10px] font-semibold tracking-tight">apparat/ui</span>
           <nav className="flex items-center gap-4 sm:gap-5 overflow-x-auto font-mono text-[10px] [scrollbar-width:none] [-ms-overflow-style:none] [&::-webkit-scrollbar]:hidden">
-            {(["home", "atoms", "molecules", "organisms", "templates"] as const).map((tab) => (
+            {(["home", "components", "blocks", "templates"] as const).map((tab) => (
               <button
                 key={tab}
                 onClick={() => setActiveTab(tab)}
@@ -813,7 +819,7 @@ export function App() {
             </div>
           </div>
         </main>
-      ) : activeTab === "organisms" ? (
+      ) : activeTab === "blocks" ? (
         <main className="mx-auto max-w-4xl px-4 sm:px-6 pb-16">
           <div className="flex flex-col gap-6 py-4 sm:py-6">
             {/* Organism 01: Floating Toolbar */}
@@ -1035,57 +1041,30 @@ export function App() {
       ) : (
         <main className="mx-auto max-w-4xl px-4 sm:px-6 pb-16">
           <div className="grid grid-cols-1 gap-4 sm:gap-6 sm:grid-cols-2">
-            {activeTab === "atoms" &&
-              atomCards.map((card) => (
-                <div
-                  key={card.id}
-                  className="group relative flex aspect-square flex-col justify-between overflow-hidden rounded-xl bg-card p-6 transition-all"
-                >
-                  <div className="relative z-10 flex items-center justify-between">
-                    <span className="font-mono text-[10px] uppercase tracking-wider text-muted-foreground">
-                      {card.num} / {card.title}
-                    </span>
-                    <button
-                      onClick={() => openCode(card.file, card.code)}
-                      className="flex items-center gap-1 rounded-md border border-border bg-secondary/50 px-2 py-1 font-mono text-[11px] text-muted-foreground transition-all hover:bg-secondary hover:text-foreground active:scale-95"
-                      title="View code"
-                    >
-                      <Code2 className="h-3 w-3" />
-                      <span>code</span>
-                    </button>
-                  </div>
-
-                  {card.render}
-
-                  <div className="relative z-10" />
+            {componentCards.map((card) => (
+              <div
+                key={card.id}
+                className="group relative flex aspect-square flex-col justify-between overflow-hidden rounded-xl bg-card p-6 transition-all"
+              >
+                <div className="relative z-10 flex items-center justify-between">
+                  <span className="font-mono text-[10px] uppercase tracking-wider text-muted-foreground">
+                    {card.num} / {card.title}
+                  </span>
+                  <button
+                    onClick={() => openCode(card.file, card.code)}
+                    className="flex items-center gap-1 rounded-md border border-border bg-secondary/50 px-2 py-1 font-mono text-[11px] text-muted-foreground transition-all hover:bg-secondary hover:text-foreground active:scale-95"
+                    title="View code"
+                  >
+                    <Code2 className="h-3 w-3" />
+                    <span>code</span>
+                  </button>
                 </div>
-              ))}
 
-            {activeTab === "molecules" &&
-              moleculeCards.map((card) => (
-                <div
-                  key={card.id}
-                  className="group relative flex aspect-square flex-col justify-between overflow-hidden rounded-xl bg-card p-6 transition-all"
-                >
-                  <div className="relative z-10 flex items-center justify-between">
-                    <span className="font-mono text-[10px] uppercase tracking-wider text-muted-foreground">
-                      {card.num} / {card.title}
-                    </span>
-                    <button
-                      onClick={() => openCode(card.file, card.code)}
-                      className="flex items-center gap-1 rounded-md border border-border bg-secondary/50 px-2 py-1 font-mono text-[11px] text-muted-foreground transition-all hover:bg-secondary hover:text-foreground active:scale-95"
-                      title="View code"
-                    >
-                      <Code2 className="h-3 w-3" />
-                      <span>code</span>
-                    </button>
-                  </div>
+                {card.render}
 
-                  {card.render}
-
-                  <div className="relative z-10" />
-                </div>
-              ))}
+                <div className="relative z-10" />
+              </div>
+            ))}
           </div>
         </main>
       )}
