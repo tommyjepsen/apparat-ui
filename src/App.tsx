@@ -737,12 +737,12 @@ export function App() {
       </div>
       {activeTab === "templates" ? (
         <main className="mx-auto w-full max-w-[1920px] px-4 sm:px-6 pb-16">
-          <div className="flex flex-col gap-10 py-4">
+          <div className="flex flex-col gap-10">
             {/* Template 01 */}
             <div className="flex flex-col gap-3">
               <div className="flex items-center justify-between">
                 <span className="font-mono text-[10px] uppercase tracking-wider text-muted-foreground">
-                  01
+                  01 / CANVAS STUDIO EDITOR
                 </span>
                 <button
                   onClick={() => openCode("canvas-editor.tsx", canvasEditorRawCode)}
@@ -821,7 +821,7 @@ export function App() {
         </main>
       ) : activeTab === "blocks" ? (
         <main className="mx-auto max-w-4xl px-4 sm:px-6 pb-16">
-          <div className="flex flex-col gap-6 py-4 sm:py-6">
+          <div className="flex flex-col gap-4 sm:gap-6">
             {/* Organism 01: Floating Toolbar */}
             <div className="flex flex-col gap-4 rounded-xl bg-card p-4 sm:p-6">
               <div className="flex items-center justify-between">
