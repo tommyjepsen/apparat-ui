@@ -1012,7 +1012,7 @@ export function App() {
               </a>.
               <br />
               Open source on{" "}
-              <a href="https://github.com/tommyjepsen/creative-tool-ui" target="_blank" rel="noreferrer" className="text-foreground underline underline-offset-2 decoration-border transition-colors hover:text-accent hover:decoration-accent">
+              <a href="https://github.com/tommyjepsen/apparat-ui" target="_blank" rel="noreferrer" className="text-foreground underline underline-offset-2 decoration-border transition-colors hover:text-accent hover:decoration-accent">
                 GitHub
               </a>.
             </p>

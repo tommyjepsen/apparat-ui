@@ -32,6 +32,7 @@ export const CreativeSlider: React.FC<CreativeSliderProps> = ({
 }) => {
   const containerRef = useRef<HTMLDivElement>(null)
   const isDraggingRef = useRef<boolean>(false)
+  const [isPressed, setIsPressed] = useState<boolean>(false)
   const [hoverValue, setHoverValue] = useState<number | null>(null)
   const [isHovered, setIsHovered] = useState<boolean>(false)
 
@@ -78,6 +79,7 @@ export const CreativeSlider: React.FC<CreativeSliderProps> = ({
   const handlePointerDown = (e: React.PointerEvent<HTMLDivElement>) => {
     if (disabled) return
     isDraggingRef.current = true
+    setIsPressed(true)
     setHoverValue(null)
     e.currentTarget.setPointerCapture(e.pointerId)
     const newVal = calculateSteppedValue(e.clientX)
@@ -107,6 +109,7 @@ export const CreativeSlider: React.FC<CreativeSliderProps> = ({
 
   const handlePointerUp = (e: React.PointerEvent<HTMLDivElement>) => {
     isDraggingRef.current = false
+    setIsPressed(false)
     try {
       e.currentTarget.releasePointerCapture(e.pointerId)
     } catch {
@@ -149,6 +152,7 @@ export const CreativeSlider: React.FC<CreativeSliderProps> = ({
       onPointerDown={handlePointerDown}
       onPointerMove={handlePointerMove}
       onPointerUp={handlePointerUp}
+      onPointerCancel={handlePointerUp}
       onPointerEnter={handlePointerEnter}
       onPointerLeave={handlePointerLeave}
       className={cn(
@@ -192,7 +196,10 @@ export const CreativeSlider: React.FC<CreativeSliderProps> = ({
 
       {/* Track Indicator Edge */}
       <div
-        className="pointer-events-none absolute inset-y-0 w-[2px] bg-accent transition-[left] duration-75 ease-out"
+        className={cn(
+          "pointer-events-none absolute inset-y-0 w-[2px] bg-accent transition-[left,opacity] duration-75 ease-out group-active:opacity-70",
+          isPressed ? "opacity-70" : "opacity-100"
+        )}
         style={{ left: `calc(${percentage}% - 1px)` }}
       />
 
